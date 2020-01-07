@@ -236,6 +236,18 @@ h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
   color: inherit;
 }
 
+/* COLUMNS */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
 /* TABLES */
 table {
@@ -286,7 +298,6 @@ table td.right {
 }
 
 /* SUPER- AND SUBSCRIPT */
-
 sup, sub {                             /* Make sure the line height isn't affected. */
   height: 0;
   line-height: 1;
@@ -297,46 +308,24 @@ sup {
   bottom: 1ex;
 }
 sub {
-  top: .5ex;
+      top: .5ex;
 }
 
-/* HORIZONTAL RULER */
-
-/* Make the <hr> element look better by replacing it with some text (usually
- * decorative characters such as fleurons or an asterism. */
 hr {
-  border: none;                        /* Remove default border. */
-  text-align: center;                  /* Centre the characters. */
-  font-size: 60px;                     /* Make it larger; what looks good depends a bit on which character you choose. */
-  color: /*textcolor*/#252525;         /* Standard text colour; it's grey by default. */
-  opacity: .9;                         /* But make it slightly less dark than regular text. */
+      border-top: 1px solid #999999;
 }
 
-hr:before {
-  /* Two fleurons with touching edges.
-  content: "☙❧";
-  letter-spacing: -4px;
-  */
+/* PUZZLE-SPECIFIC */
+.flavor {
+    font-style: italic;
+    color: #aaaaaa;
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 16px;
+}
 
-  /* As SVG, because too many browsers suck at rendering fonts well. This is
-   * the same as the above two rules (as they *should* render). */
-  content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMC4yIDkuMiIgaGVpZ2h0PSIzNC44IiB3aWR0aD0iMTE0LjMiPjxwYXRoIGQ9Ik0xMy4yIDBxMS4xIDAgMS4zIDEuMiAwIDEtLjcgMS4yLTEuOC40LTIgLjggMi42LjMgMy4yIDMuMWguMmwuMi44LS40LjFxLS4yIDEuOC0xLjggMS45LTEgMC0xLjMtMSAwLS44LjItLjguMi40LjguNC44IDAgMS0uOFExMSA2LjEgMTEgMy43cS0xLjQgMC0yLjEgMSAxLjQuNyAxLjQgMS44LS4xIDIuNS0zLjYgMi43US41IDkuMiAwIDUuNXEwLS42LjctLjcuNSAwIC42LjV2LjJsLS4xLjRxMCAxIDEuMSAxIDEgMCAxLS43UTQgMS4yIDcgMXEyIC4xIDIgMS43di4xcTAgLjQtLjQgMS41IDEtLjggMi0xIC42IDAgLjYtLjQuOC0xIDEuNi0xLjMuNi0uNC42LS44bC0uMi0uNHEtLjItLjMgMC0uNHptLTEuNiAzLjd2LjFxMCAxLjQgMi4zIDIuMi0uMy0yLTIuMy0yLjN6Ii8+PHBhdGggZD0iTTE3IDBxLTEgMC0xLjMgMS4yIDAgMSAuOCAxLjIgMS44LjQgMiAuOC0yLjcuMy0zLjIgMy4xSDE1bC0uMi44LjUuMXEuMiAxLjggMS44IDEuOSAxIDAgMS4yLTEgMC0uOC0uMi0uOC0uMS40LS43LjQtLjkgMC0xLS44IDIuNy0uOCAyLjgtMy4yIDEuNCAwIDIgMS0xLjMuNy0xLjMgMS44IDAgMi41IDMuNSAyLjcgNi40IDAgNi44LTMuNyAwLS42LS42LS43LS42IDAtLjcuNXYuMmwuMi40cTAgMS0xLjIgMS0uOSAwLTEtLjctLjYtNS0zLjctNS4yLTIgLjEtMiAxLjd2LjFxMCAuNC40IDEuNS0xLS44LTItMS0uNiAwLS42LS40LS43LTEtMS41LTEuMy0uNi0uNC0uNi0uOGwuMi0uNHEuMi0uMyAwLS40em0xLjcgMy43di4xcTAgMS40LTIuNCAyLjIuMy0yIDIuNC0yLjN6Ii8+PC9zdmc+);
-
-  /* Alternative: separate with a space:
-  content: "☙ ❧";
-  */
-
-  /* Or separate with letter-spacing and padding:
-  letter-spacing: 1em;
-  padding-left: 1em;
-  */
-
-  /* Or asterism:
-  content: "⁂";
-  */
-
-  /* Many possibilities
-  content: "* * *";
-  content: "· · ·";
-  */
+.qn {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
 }
