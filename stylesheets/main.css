@@ -41,6 +41,11 @@ html {
   -moz-tab-size: 4;                    /* Still needed as of Jan 2019 :-( */
 }
 
+p {
+	text-align: justify;			   /* Justify *everything*. Oh yea baby */
+	text-justify: inter-word;
+}
+
 html, body {
   margin: 0;                           /* No extra margin; shows up in some cases (e.g. when printing). */
 }
@@ -203,6 +208,10 @@ figure.border {
 code, pre, kbd, samp {
   background-color: #f5f5f5;           /* Make it stand out a bit more. */
   color: #000;                         /* Override the softer black, as we're now using a grey background. */
+}
+
+code {
+	align-content: center;
 }
 
 pre {
