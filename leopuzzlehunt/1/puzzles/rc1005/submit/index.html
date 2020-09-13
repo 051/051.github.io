@@ -1,0 +1,104 @@
+<html>
+<head>
+    <title>Submit an answer</title>
+    <link type='text/css' rel='stylesheet' href='https://051.github.io/stylesheets/main.css'>
+	<script>
+		function hash(str) {
+			var hash = 0;
+			var trimmed = str
+				.toLowerCase()
+				.toString()
+				.replace(/[^a-zA-Z]/gi, "");
+			if (trimmed.length == 0) {
+				return hash;
+			}
+			for (var i = 0; i < trimmed.length; i++) {
+				var char = trimmed.charCodeAt(i);
+				hash = (hash << 6) - hash + char;
+				hash = hash & hash;
+			}
+			return Math.abs(hash);
+		}
+		function check(str) {
+			if (str.length > 0) {
+				if (hash(str) === 1061469367) {
+					document.getElementById("yes").innerHTML=
+						"<font color='green'><h3>✅ Solved!</h3>The answer was <strong>"
+						+ document.getElementById("checker").value.replace(/[^a-zA-Z ]/gi, "").toUpperCase()
+						+ "</strong>.";
+				} else {
+					document.getElementById("yes").innerHTML=
+						"<font color='#B00000'><h3>❌ Incorrect!</h3><strong>"
+						+ document.getElementById("checker").value.replace(/[^a-zA-Z ]/gi, "").toUpperCase()
+						+ "</strong> was not the answer.</font>";
+				}
+			}
+		}
+		window.onload = function() {
+			const checkerbox = document.getElementById("checker");
+			checkerbox.addEventListener("keyup", function(event) {
+				if (event.keyCode === 13) {
+					event.preventDefault();
+					document.getElementById("validate").click();
+				}
+			});
+		}
+	</script>
+	<style>
+		button {
+			background-color: #B00000;
+			border: none;
+			color: white;
+			padding: 8px 15px;
+			text-align: center;
+			font-family: Nunito;
+			font-size: 12pt;
+			border-radius: 8px;
+		}
+		input {
+			width: 300px;
+			font-size: 16px;
+			font-family: Nunito;
+			border-radius: 4px;
+			padding-left: 4px;
+			margin-bottom: 24px;
+		}
+		select {
+			font-family: Nunito;
+			border-radius: 4px;
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="center">
+		<a href="/leopuzzlehunt">LeoPH main</a> | 
+		<a href="/leopuzzlehunt/1/puzzles">Puzzles</a> |
+		<a href="https://tinyurl.com/leophteams">Leaderboard</a> | 
+		<a href="/leopuzzlehunt/1/wrapup">Wrap-up</a> |
+		<a href="/leopuzzlehunt/guide">Solving guide</a> |
+		<a href="/leopuzzlehunt/faq">FAQ</a>
+		<span style="float:right;">
+			<a href="../">Back to puzzle</a>
+		</span>
+	</nav>
+	<article class="page">
+        <h1>Check your answer to <font color='#B00000'>Water Traversal</font></h1>
+		<center>
+			<h3>
+				<input id="checker" name="checker" placeholder="Your guess">
+				<!-- lazy spacing -->
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp
+				<button id="validate" onclick='check(document.getElementById("checker").value)'><b>Check!</b></button>
+			</h3>
+			<p><small>
+				Punctuation, spacing, and capitalisation aren't important; the answer checker automatically standardises those.
+			</small></p>
+			<p id="yes"> </p>
+		</center>
+	</article>
+	<footer class="center" style="text-align: right">
+        <a href="/">Back to site main</a>
+    </footer>
+</body>
+</html>
