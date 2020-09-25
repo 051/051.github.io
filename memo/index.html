@@ -74,6 +74,14 @@
 					e.preventDefault();
 				}
 			}, false);
+			
+			// ctrl-S to save
+			document.querySelector("textarea").addEventListener('keydown',function(e) {
+				if (e.ctrlKey && ( e.which === 83 )) {
+					save();
+					e.preventDefault();
+				}
+			}, false);
 		}
 	</script>
 </head>
