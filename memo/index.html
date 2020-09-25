@@ -77,8 +77,16 @@
 			
 			// ctrl-S to save
 			document.querySelector("textarea").addEventListener('keydown',function(e) {
-				if (e.ctrlKey && ( e.which === 83 )) {
+				if (e.ctrlKey && ( e.keyCode === 83 )) {
 					save();
+					e.preventDefault();
+				}
+			}, false);
+			
+			// ctrl-F to toggle font
+			document.querySelector("textarea").addEventListener('keydown',function(e) {
+				if (e.ctrlKey && ( e.keyCode === 70 )) {
+					monospace();
 					e.preventDefault();
 				}
 			}, false);
