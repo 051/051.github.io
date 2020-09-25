@@ -4,6 +4,7 @@
     <title>Memo | Level 51</title>
     <link type='text/css' rel='stylesheet' href='https://051.github.io/stylesheets/main.css'>
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<style>
 		button {
 			background-color: #B00000;
@@ -39,9 +40,34 @@
 			window.localStorage.removeItem("51_memo_store");
 			document.getElementById("display").innerHTML = "✨ Saved data cleared!";
 		}
+		function monospace() {
+			if (document.getElementById("memo").style["font-family"] == "") {
+				document.getElementById("memo").style = "font-family: Roboto Mono";
+				document.getElementById("display").innerHTML = "🤖 Font toggled!";
+			} else {
+				document.getElementById("memo").style = "";
+				document.getElementById("display").innerHTML = "🙂 Font toggled!";
+			}
+		}
 		window.onload = function() {
+			// load memo from localStorage
 			var saved_txt = window.localStorage.getItem("51_memo_store");
 			document.getElementById("memo").value = saved_txt;
+			
+			// make tab work
+			document.querySelector("textarea").addEventListener('keydown',function(e) {
+				if (e.keyCode === 9) {
+					var start = this.selectionStart;
+					var end = this.selectionEnd;
+					var target = e.target;
+					var value = target.value;
+					target.value = value.substring(0, start)
+								+ "\t"
+								+ value.substring(end);
+					this.selectionStart = this.selectionEnd = start + 1;
+					e.preventDefault();
+				}
+			}, false);
 		}
 	</script>
 </head>
@@ -63,7 +89,9 @@
 			<br /><br />
 			<textarea id="memo"></textarea>
 			<br />
-			<button onclick="save()">Save</button>&nbsp;&nbsp;&nbsp;<button onclick="clear_data()">Clear saved text</button>
+			<button onclick="save()">Save</button>&emsp;
+			<button onclick="clear_data()">Clear saved text</button>&emsp;
+			<button onclick="monospace()">Toggle monospace</button>
 			<p id="display" style="font-size:12px"></p>
 			<p style="font-size:8px">
 				(this tool has not been tested at all. use at your own risk.)
