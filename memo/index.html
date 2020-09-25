@@ -42,14 +42,14 @@
 			document.getElementById("display").innerHTML = "✨ Saved data cleared!";
 		}
 		function monospace() {
-			if (window.localStorage.getItem("51_memo_font") == "mono") {
-				document.getElementById("memo").style = "";
-				window.localStorage.removeItem("51_memo_font");
-				document.getElementById("display").innerHTML = "🙂 Font toggled!";
-			} else {
+			if (document.getElementById("memo").style["font-family"] == "") {
 				document.getElementById("memo").style = "font-family: Roboto Mono";
 				window.localStorage.setItem("51_memo_font", "mono");
-				document.getElementById("display").innerHTML = "🤖 Font toggled!";
+				document.getElementById("display").innerHTML = "🤖 Font preference saved!";
+			} else {
+				document.getElementById("memo").style = "";
+				window.localStorage.removeItem("51_memo_font");
+				document.getElementById("display").innerHTML = "🙂 Font preference saved!";
 			}
 		}
 		window.onload = function() {
