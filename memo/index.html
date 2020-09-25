@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Memo | Level 51</title>
+    <link type='text/css' rel='stylesheet' href='https://051.github.io/stylesheets/main.css'>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+	<style>
+		button {
+			background-color: #B00000;
+			border: none;
+			color: white;
+			padding: 8px 15px;
+			text-align: center;
+			font-family: Nunito;
+			font-size: 12pt;
+			border-radius: 8px;
+		}
+		textarea {
+			width: 600px;
+			height: 250px;
+			font-size: 16px;
+			font-family: Nunito;
+			border-radius: 4px;
+			padding: 8px;
+			margin-bottom: 24px;
+			resize: both;
+		}
+		h1 {
+			padding: 0;
+		}
+	</style>
+	<script>
+		function save() {
+			var txt = document.getElementById("memo").value;
+			window.localStorage.setItem("51_memo_store", txt);
+			document.getElementById("display").innerHTML = "✏️ Memo saved!";
+		}
+		function clear_data() {
+			window.localStorage.removeItem("51_memo_store");
+			document.getElementById("display").innerHTML = "✨ Saved data cleared!";
+		}
+		window.onload = function() {
+			var saved_txt = window.localStorage.getItem("51_memo_store");
+			document.getElementById("memo").value = saved_txt;
+		}
+	</script>
+</head>
+<body>
+	<nav class="center">
+		<a href="/">Home</a> |
+		<a href="/puzzles">Puzzles</a> |
+		<a href="/leopuzzlehunt">Leo Puzzle Hunt</a>
+	</nav>
+    <article class="page">
+		<h1>Memo</h1>
+		<center>
+			<div style="font-size:12px">
+				I couldn't find any reasonable webpage to store plaintext to-do lists to set as my home page... so I made my own.<br />
+			</div>
+			<div style="font-size:8px">
+				(admittedly, I didn't try very hard.)
+			</div>
+			<br /><br />
+			<textarea id="memo"></textarea>
+			<br />
+			<button onclick="save()">Save</button>&nbsp;&nbsp;&nbsp;<button onclick="clear_data()">Clear saved text</button>
+			<p id="display" style="font-size:12px"></p>
+			<p style="font-size:8px">
+				(this tool is not tested at all. use at your own risk.)
+			</p>
+		</center>
+    </article>
+</body>
+</html>
