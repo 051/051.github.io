@@ -323,8 +323,7 @@ hr {
 .flavor {
     font-style: italic;
     color: #aaaaaa;
-    text-align: justify;
-    text-justify: inter-word;
+    text-align: center;
     font-size: 14px;
 }
 
