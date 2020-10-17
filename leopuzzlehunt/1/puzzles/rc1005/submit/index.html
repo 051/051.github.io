@@ -2,38 +2,9 @@
 <head>
     <title>Submit an answer</title>
     <link type='text/css' rel='stylesheet' href='https://051.github.io/stylesheets/main.css'>
+	<script src="/scripts/puzzle.js"></script>
 	<script>
-		function hash(str) {
-			var hash = 0;
-			var trimmed = str
-				.toLowerCase()
-				.toString()
-				.replace(/[^a-zA-Z]/gi, "");
-			if (trimmed.length == 0) {
-				return hash;
-			}
-			for (var i = 0; i < trimmed.length; i++) {
-				var char = trimmed.charCodeAt(i);
-				hash = (hash << 6) - hash + char;
-				hash = hash & hash;
-			}
-			return Math.abs(hash);
-		}
-		function check(str) {
-			if (str.length > 0) {
-				if (hash(str) === 1061469367) {
-					document.getElementById("yes").innerHTML=
-						"<font color='green'><h3>✅ Solved!</h3>The answer was <strong>"
-						+ document.getElementById("checker").value.replace(/[^a-zA-Z ]/gi, "").toUpperCase()
-						+ "</strong>.";
-				} else {
-					document.getElementById("yes").innerHTML=
-						"<font color='#B00000'><h3>❌ Incorrect!</h3><strong>"
-						+ document.getElementById("checker").value.replace(/[^a-zA-Z ]/gi, "").toUpperCase()
-						+ "</strong> was not the answer.</font>";
-				}
-			}
-		}
+		const h = 1061469367;
 		window.onload = function() {
 			const checkerbox = document.getElementById("checker");
 			checkerbox.addEventListener("keyup", function(event) {
@@ -88,8 +59,8 @@
 			<h3>
 				<input id="checker" name="checker" placeholder="Your guess">
 				<!-- lazy spacing -->
-				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp
-				<button id="validate" onclick='check(document.getElementById("checker").value)'><b>Check!</b></button>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+				<button id="validate" onclick='check(document.getElementById("checker").value, h)'><b>Check!</b></button>
 			</h3>
 			<p><small>
 				Punctuation, spacing, and capitalisation aren't important; the answer checker automatically standardises those.
