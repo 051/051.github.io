@@ -66,6 +66,10 @@ html, body {
   }
 }
 
+p.just {
+	text-align: justify;
+	text-justify: inter-word;
+}
 
 /* PRINTING */
 @page {
