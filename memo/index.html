@@ -43,7 +43,7 @@
 		}
 		function monospace() {
 			if (document.getElementById("memo").style["font-family"] == "") {
-				document.getElementById("memo").style = "font-family: Roboto Mono";
+				document.getElementById("memo").style = "font-family: Roboto Mono, monospace";
 				window.localStorage.setItem("51_memo_font", "mono");
 				document.getElementById("display").innerHTML = "🤖 Font preference saved!";
 			} else {
@@ -57,7 +57,7 @@
 			var saved_txt = window.localStorage.getItem("51_memo_store");
 			document.getElementById("memo").value = saved_txt;
 			if (window.localStorage.getItem("51_memo_font") == "mono") {
-				document.getElementById("memo").style = "font-family: Roboto Mono";
+				document.getElementById("memo").style = "font-family: Roboto Mono, monospace";
 			}
 			
 			// make tab work
