@@ -41,9 +41,9 @@ function check_live(str, h, n) {
 				"<font color='green'><h3>✅ Solved!</h3>The answer was <strong>"
 				+ document.getElementById("checker").value.replace(/[^a-zA-Z ]/gi, "").toUpperCase()
 				+ "</strong>.";
-			var temp = localStorage.getItem('lph-solve');
-			temp = temp.substr(0, n) + "1" + temp.substr(n + 1);
-			localStorage.setItem('lph-solve', temp);
+			var t = localStorage.getItem('lph-solve');
+			t = t.substr(0, n) + "1" + t.substr(n + 1);
+			localStorage.setItem('lph-solve', t);
 		} else {
 			document.getElementById("yes").innerHTML=
 				"<font color='#B00000'><h3>❌ Incorrect!</h3><strong>"
