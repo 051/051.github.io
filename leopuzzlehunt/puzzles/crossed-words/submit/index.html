@@ -1,0 +1,136 @@
+<html>
+<head>
+    <title>Submit an answer</title>
+    <link type='text/css' rel='stylesheet' href='https://051.github.io/stylesheets/main.css'>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="http://051.github.io/scripts/puzzle.js"></script>
+	<script>
+		var url = "https://script.google.com/macros/s/AKfycbxMVuz2iFL4dazwhMlsAHjF6LipTF3AZ3EYL1Eh5gEOU6iEFYA/exec";
+		var puzzID = "Crossed Words";
+		var h = 1398927896;
+		
+		$(document).ready(function(){
+		    $("button").click(function(){
+				var ans = document.getElementById("checker").value.replace(/[^a-zA-Z]/gi, "").toUpperCase();
+				var pair = document.getElementById("pair");
+				var pairNo = pair.selectedIndex;
+				var pairName = pair.options[pairNo].text;
+				$.post(url,
+					{
+						data: ans,
+						pair: pairName,
+						puzz: puzzID
+					});
+				// save pair name to localStorage for easier load
+				localStorage.setItem("lph-team", pairNo);
+			});
+		});
+
+		window.onload = function() {
+			const checkerbox = document.getElementById("checker");
+			checkerbox.addEventListener("keyup", function(event) {
+				if (event.keyCode === 13) {
+					event.preventDefault();
+					document.getElementById("validate").click();
+				}
+			});
+			try {
+				// load pair name from localStorage
+				loadedPairNo = parseInt(localStorage.getItem("lph-team"));
+				document.getElementById("pair").options[loadedPairNo].selected = true;
+			} catch (err) { }
+		}
+	</script>
+	<style>
+		button {
+			background-color: #B00000;
+			border: none;
+			color: white;
+			padding: 8px 15px;
+			text-align: center;
+			font-family: Nunito;
+			font-size: 12pt;
+			border-radius: 8px;
+		}
+		input {
+			width: 300px;
+			font-size: 16px;
+			font-family: Nunito;
+			border-radius: 4px;
+			padding-left: 4px;
+			margin-bottom: 24px;
+		}
+		select {
+			font-family: Nunito;
+			border-radius: 4px;
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="center">
+		<a href="/leopuzzlehunt">LeoPH main</a> | 
+		<a href="/leopuzzlehunt/puzzles">Puzzles</a> |
+		<a href="/leopuzzlehunt/teams">Leaderboard</a> |
+		<a href="/leopuzzlehunt/guide">Solving guide</a> |
+		<a href="/leopuzzlehunt/faq">FAQ</a>
+		<span style="float:right;">
+			<a href="../">Back to puzzle</a>
+		</span>
+	</nav>
+	<article class="page">
+        <h1>Check your answer to <font color='#B00000'><script type="text/javascript">document.write(puzzID);</script></font></h1>
+		<center>
+			Your team:
+			<select id="pair" name="pair">
+				<option>Guest account</option>
+				<option>👽👽👽 area51xoxo 👽👽👽</option>
+				<option>17820</option>
+				<option>🅱️a🅱️oons</option>
+				<option>BALIK KAMPONG</option>
+				<option>Banana cake</option>
+				<option>Bananas in Pyjamas</option>
+				<option>beaucoup</option>
+				<option>BJ for BBT</option>
+				<option>Chikin Raisu</option>
+				<option>Chocolate Chip Cookie</option>
+				<option>Fool Fighters</option>
+				<option>Galaxy Brains</option>
+				<option>homeless</option>
+				<option>Ivane Trump</option>
+				<option>jjlin</option>
+				<option>LEOnal Messi</option>
+				<option>little simbas</option>
+				<option>Nacho Average Squad</option>
+				<option>nicehoomans</option>
+				<option>Night Clowns</option>
+				<option>Phantoms</option>
+				<option>Ramyeon Cats</option>
+				<option>Sashiminsushi</option>
+				<option>Shaheel</option>
+				<option>Shoulder Monkey</option>
+				<option>Silver Exposure</option>
+				<option>StardustCrusaders</option>
+				<option>Tees and Teas</option>
+				<option>The Uncommons</option>
+				<option>Ummmmmmm</option>
+				<option>Weneedaname</option>
+			</select>
+			<h3>
+				<input id="checker" name="checker" placeholder="Your guess">
+				<!-- lazy spacing -->
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+				<button id="validate" onclick='check(document.getElementById("checker").value, h)'><b>Check!</b></button>
+			</h3>
+			<p><small>
+				Punctuation, spacing, and capitalisation aren't important; the answer checker automatically standardises those.
+			</small></p>
+			<p id="yes"> </p>
+		</center>
+	</article>
+	<footer class="center" style="text-align: right">
+        <a href="/">Back to site main</a>
+    </footer>
+</body>
+</html>
