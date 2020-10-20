@@ -51,3 +51,4 @@ function check_live(str, h, n) {
 				+ "</strong> was not the answer.</font>";
 		}
 	}
+}
