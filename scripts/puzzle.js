@@ -30,3 +30,24 @@ function check(str, h) {
 		}
 	}
 }
+
+function check_live(str, h, n) {
+	if (localStorage.getItem('lph-solve') == null) {
+		localStorage.setItem('lph-solve', "00000000");
+	}
+	if (str.length > 0) {
+		if (hash(str) === h) {
+			document.getElementById("yes").innerHTML=
+				"<font color='green'><h3>✅ Solved!</h3>The answer was <strong>"
+				+ document.getElementById("checker").value.replace(/[^a-zA-Z ]/gi, "").toUpperCase()
+				+ "</strong>.";
+			var temp = localStorage.getItem('lph-ans');
+			temp[n] = "1";
+			localStorage.setItem('lph-ans', temp);
+		} else {
+			document.getElementById("yes").innerHTML=
+				"<font color='#B00000'><h3>❌ Incorrect!</h3><strong>"
+				+ document.getElementById("checker").value.replace(/[^a-zA-Z ]/gi, "").toUpperCase()
+				+ "</strong> was not the answer.</font>";
+		}
+	}
