@@ -42,7 +42,7 @@ function check_live(str, h, n) {
 				+ document.getElementById("checker").value.replace(/[^a-zA-Z ]/gi, "").toUpperCase()
 				+ "</strong>.";
 			var temp = localStorage.getItem('lph-solve');
-			temp[n] = "1";
+			temp = temp.substr(0, n) + "1" + temp.substr(n + 1);
 			localStorage.setItem('lph-solve', temp);
 		} else {
 			document.getElementById("yes").innerHTML=
