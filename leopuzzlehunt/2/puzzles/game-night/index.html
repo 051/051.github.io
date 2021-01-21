@@ -1,0 +1,275 @@
+<html>
+<head>
+    <title>Game Night</title>
+    <link type='text/css' rel='stylesheet' href='https://051.github.io/stylesheets/main.css'>
+	<link rel="icon" type="image/png" href="/favicon.png">
+	<script src="https://051.github.io/scripts/puzzle.js"></script>
+	<style>
+		h1 {
+			padding: 0;
+			font-size: 36px;
+			font-variant: small-caps;
+		}
+		.sub-flavor {
+			font-style: italic;
+			color: #aaaaaa;
+			font-size: 14px;
+		}
+		button {
+			background-color: #B00000;
+			border: none;
+			color: white;
+			padding: 4px 6px;
+			text-align: center;
+			font-family: Nunito;
+			font-size: 8pt;
+			border-radius: 5px;
+		}
+	</style>
+	<script>
+		const h = [1912946996, 356951957, 617256934, 1754302092, 25476181, 1026836624, 2000668999, 24182113, 558160277]
+		function subcheck(str, N) {
+			if (str.length > 0) {
+				if (hash(str) === h[N]) {
+					document.getElementById("feeder-" + N).innerHTML=
+						"<strong><font color='green'>"
+						+ document.getElementById("checker-" + N).value.replace(/[^a-zA-Z]/gi, "").toUpperCase()
+						+ "</strong>";
+					document.getElementById("subcheck-" + N).innerHTML=
+						"Solved: <font color='green'>"
+						+ document.getElementById("checker-" + N).value.replace(/[^a-zA-Z]/gi, "").toUpperCase();
+				} else {
+					document.getElementById("checker-" + N).value = "";	
+					document.getElementById("checker-" + N).placeholder = "Incorrect, try again!";
+				}
+			}
+		}
+		window.onload = function() {
+			for (let i = 0; i < 9; i++) {
+				const checkerbox = document.getElementById("checker-" + i);
+				checkerbox.addEventListener("keyup", function(event) {
+					if (event.keyCode === 13) {
+						event.preventDefault();
+						document.getElementById("validate-" + i).click();
+					}
+				});
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<nav class="center">
+		<a href="/leopuzzlehunt">LeoPH main</a> | 
+		<a href="/leopuzzlehunt/2/puzzles">Puzzles</a> |
+		<a href="/leopuzzlehunt/2/teams">Leaderboard</a> | 
+		<a href="/leopuzzlehunt/guide">Solving guide</a> |
+		<a href="/leopuzzlehunt/faq">FAQ</a>
+		<span style="float:right;">
+			<b><a href="./submit">Call in an answer</a></b>
+		</span>
+	</nav>
+	<!-- There's no hints on any pages on the site. Nice try, though. -->
+	<article class="page">
+        <h1>Game Night</h1>
+		<p class="just">
+			<b>A:</b> "I can't decide which game to play."<br />
+			<b>B:</b> "Yeah, me neither... let's just play all of them."
+		</p>
+		<div class="flavor">
+			<center>
+				There's so many games to try! Why don't you try figuring each one out, and combine them all later on?
+			</center>
+		</div>
+		<hr>
+		<center>
+			<p>
+				<small>Please take note: this page records your sub-answers for your convenience, but refreshing this page will reset these records. (It's not necessary to solve every sub-puzzle in order to solve the overall puzzle.)</small>
+			</p>
+		</center>
+		<h2>FIFA
+			<span style="float:right; font-size:16px; line-height:32px" id="subcheck-0">
+				Check your sub-answer:
+				<input id="checker-0" name="checker" placeholder="Your guess">
+				<button id="validate-0" onclick='subcheck(document.getElementById("checker-0").value, 0)'><b>Check!</b></button>
+			</span>
+		</h2>
+		<div class="sub-flavor">
+			Sure, you may have many players to control, but usually you'll be focusing on the one directly behind the ball.
+		</div>
+		<ol>
+			<li>DISCOURSE</li>
+			<li>ENVIRONMENT</li>
+			<li>EXPOSURE</li>
+			<li>COEFFICIENT</li>
+			<li>SHOESTRING</li>
+			<li>INFUSION</li>
+		</ol>
+		<h2>Mahjong
+			<span style="float:right; font-size:16px; line-height:32px" id="subcheck-1">
+				Check your sub-answer:
+				<input id="checker-1" name="checker" placeholder="Your guess">
+				<button id="validate-1" onclick='subcheck(document.getElementById("checker-1").value, 1)'><b>Check!</b></button>
+			</span>
+		</h2>
+		<div class="sub-flavor">
+			A pair might not be enough to play Mahjong, but once you have four of a kind, you're good to go!
+		</div>
+		<ol>
+			<li>SAVVY REVOLVER</li>
+			<li>VISIBILITY</li>
+			<li>REAL ERROR</li>
+			<li>STATUETTE</li>
+			<li>TUMULTUOUS</li>
+			<li>COOKBOOK</li>
+			<li>SCISSORS</li>
+			<li>CONTROL ROOM</li>
+		</ol>
+		<h2>Codenames
+			<span style="float:right; font-size:16px; line-height:32px" id="subcheck-2">
+				Check your sub-answer:
+				<input id="checker-2" name="checker" placeholder="Your guess">
+				<button id="validate-2" onclick='subcheck(document.getElementById("checker-2").value, 2)'><b>Check!</b></button>
+			</span>
+		</h2>
+		<div class="sub-flavor">
+			This game might not be in its Alpha stages anymore, but Bravo to you if you understand its rules immediately.
+		</div>
+		<ol>
+			<li>MINI GOLF</li>
+			<li>SCHOOL UNIFORM</li>
+			<li>NOVEMBER AIR</li>
+			<li>SIERRA MOUNTAINS</li>
+			<li>LUXURY HOTEL</li>
+			<li>OSCAR WILDE</li>
+			<li>ARGENTINE TANGO</li>
+		</ol>
+		<h2>Fall Guys
+			<span style="float:right; font-size:16px; line-height:32px" id="subcheck-3">
+				Check your sub-answer:
+				<input id="checker-3" name="checker" placeholder="Your guess">
+				<button id="validate-3" onclick='subcheck(document.getElementById("checker-3").value, 3)'><b>Check!</b></button>
+			</span>
+		</h2>
+		<div class="sub-flavor">
+			In Fall Guys, sometimes you'll fall back, but you have to know how to pick yourself up and go forwards again.
+		</div>
+		<ol>
+			<li>MINCED DENIM</li>
+			<li>POETS STEP</li>
+			<li>AGONY YOGA</li>
+			<li>RETRACTS STARTER</li>
+			<li>SUGAR RAGS</li>
+			<li>STOOL LOOT</li>
+			<li>SODA ADO</li>
+			<li>PACIER RECAP</li>
+			<li>RIOTS STIR</li>
+			<li>RENTAL LATER</li>
+		</ol>
+		<h2>Mario Kart
+			<span style="float:right; font-size:16px; line-height:32px" id="subcheck-4">
+				Check your sub-answer:
+				<input id="checker-4" name="checker" placeholder="Your guess">
+				<button id="validate-4" onclick='subcheck(document.getElementById("checker-4").value, 4)'><b>Check!</b></button>
+			</span>
+		</h2>
+		<div class="sub-flavor">
+			Mario Kart is one of those games where everything seems to be in order... until one small thing goes wrong, and then suddenly it isn't!
+		</div>
+		<ol>
+			<li>BLOODY</li>
+			<li>CLUMPY</li>
+			<li>OBLOQUY</li>
+			<li>DESILT</li>
+		</ol>
+		<h2>Jackbox
+			<span style="float:right; font-size:16px; line-height:32px" id="subcheck-5">
+				Check your sub-answer:
+				<input id="checker-5" name="checker" placeholder="Your guess">
+				<button id="validate-5" onclick='subcheck(document.getElementById("checker-5").value, 5)'><b>Check!</b></button>
+			</span>
+		</h2>
+		<div class="sub-flavor">
+			"Are you sure Jackbox has nothing to do with cards? It's even in the name!" "No, here, I'll sort you out: everything you need is written right on the front."<br />
+			(Note: the answer to this subpuzzle is a proper noun.)
+		</div>
+		<ul>
+			<li>CRACKERJACK</li>
+			<li>NECKLACE</li>
+			<li>OVERTHINKING</li>
+			<li>SNOW QUEEN</li>
+			<li>THYRONINE</li>
+			<li>UNFASTEN</li>
+		</ul>
+		<h2>Overcooked
+			<span style="float:right; font-size:16px; line-height:32px" id="subcheck-6">
+				Check your sub-answer:
+				<input id="checker-6" name="checker" placeholder="Your guess">
+				<button id="validate-6" onclick='subcheck(document.getElementById("checker-6").value, 6)'><b>Check!</b></button>
+			</span>
+		</h2>
+		<div class="sub-flavor">
+			One of the most annoying parts of Overcooked is having to peel the edges off the food before you can get cooking.
+		</div>
+		<ol>
+			<li>NEXT</li>
+			<li>SQUID</li>
+			<li>ASIA</li>
+			<li>STEW</li>
+		</ol>
+		<h2>League of Legends
+			<span style="float:right; font-size:16px; line-height:32px" id="subcheck-7">
+				Check your sub-answer:
+				<input id="checker-7" name="checker" placeholder="Your guess">
+				<button id="validate-7" onclick='subcheck(document.getElementById("checker-7").value, 7)'><b>Check!</b></button>
+			</span>
+		</h2>
+		<div class="sub-flavor">
+			I tried playing a MOBA once, but all the terminology was just lists of consecutive letters, and I could never get past the first one.
+		</div>
+		<ol>
+			<li>MOISTURE</li>
+			<li>QR SCANNER</li>
+			<li>UV WAVES</li>
+			<li>LAB COAT</li>
+			<li>ASTUTE</li>
+			<li>HIJACKED</li>
+		</ol>
+		<h2>Smash
+			<span style="float:right; font-size:16px; line-height:32px" id="subcheck-8">
+				Check your sub-answer:
+				<input id="checker-8" name="checker" placeholder="Your guess">
+				<button id="validate-8" onclick='subcheck(document.getElementById("checker-8").value, 8)'><b>Check!</b></button>
+			</span>
+		</h2>
+		<div class="sub-flavor">
+			Hearing people say stuff like "f-smash" or "n-air" gets confusing really fast.
+		</div>
+		<ol>
+			<li>EYELASH</li>
+			<li>EMPEROR</li>
+			<li>PEEKABOO</li>
+			<li>YOUTUBE</li>
+			<li>ELEMENT</li>
+			<li>ESCAPE</li>
+			<li>EQUALITY</li>
+		</ol>
+		<h2>Among Us</h2>
+		<div class="sub-flavor">
+			Looks like each of the other games had an impostor too, and they were Among US.<br />
+			(This gives your overall answer to the puzzle.)
+		</div>
+		<ol>
+			<li id="feeder-0">Answer to <b>FIFA</b></li>
+			<li id="feeder-1">Answer to <b>Mahjong</b></li>
+			<li id="feeder-2">Answer to <b>Codenames</b></li>
+			<li id="feeder-3">Answer to <b>Fall Guys</b></li>
+			<li id="feeder-4">Answer to <b>Mario Kart</b></li>
+			<li id="feeder-5">Answer to <b>Jackbox</b></li>
+			<li id="feeder-6">Answer to <b>Overcooked</b></li>
+			<li id="feeder-7">Answer to <b>League of Legends</b></li>
+			<li id="feeder-8">Answer to <b>Smash</b></li>
+		</ol>
+	</article>
+</body>
+</html>

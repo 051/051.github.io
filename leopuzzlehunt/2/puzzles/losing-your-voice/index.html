@@ -1,0 +1,219 @@
+<html>
+<head>
+    <title>Losing Your Voice</title>
+    <link type='text/css' rel='stylesheet' href='https://051.github.io/stylesheets/main.css'>
+	<link rel="icon" type="image/png" href="/favicon.png">
+	<style>
+		h1 {
+			padding: 0;
+			font-size: 36px;
+			font-variant: small-caps;
+		}
+		p {
+			text-align: justify;
+			text-justify: inter-word;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="exolve-m.css?v0.46"/>
+	<script src="exolve-m.js?v0.46"></script>
+	
+	<script>
+	const puzzleText = `
+	exolve-begin
+		exolve-width: 11
+		exolve-height: 11
+		exolve-grid:
+			XXX.XXXX.XX
+			XXX.XXXXXXX
+			XXXXXX.XX..
+			...XX.XXXXX
+			XXXX.XXXXXX
+			XXX.XXX.XXX
+			XXXXXX.XXXX
+			XXXXX.XX...
+			..XX.XXXXXX
+			XXXXXXX.XXX
+			XX.XXXX.XXX
+		exolve-across:
+			1 Lk sm vry ld nd vlbl frntr r rt
+			4 Rslt f ddng ght t fr
+			8 Ggrphc rgn tht nclds strl nd sm nrby slnds
+			10 Brth t
+			11 Dftd n&nbsp;&nbsp;gm f chss
+			13 * nswr, prt n
+			15 nt f msrmnt wghng n-sxtnth f&nbsp;&nbsp;pnd
+			16 "Prss ____ ky t cntn"
+			17 * nswr, prt tw
+			20 Prssng lqd t f frts
+			23 Lttr tht wld nt b dltd n ths pzzl
+			24 ____-Frnc Prss (nws srvc)
+			25 Thry ssctd wth th bttrfly ffct
+			26 Dvc sd t tk phtgrphs
+			27 * nswr, prt thr
+			29 Tll, mnmntl pllr tppd wth&nbsp;&nbsp;pyrmd
+			30 n wh trnsfrms nt&nbsp;&nbsp;cnn ndr&nbsp;&nbsp;fll mn
+			31 * nswr, prt fr
+			32 Cptl f Vtnm
+			33 "____ Wrtr" (sng by Th Btls)
+			37 Stmp cllctr
+			40 Bsktbll plyr, nfrmlly
+			41 Cry f dscvry gvn by rchmds n hs bthtb
+			42 n wh lvs n&nbsp;&nbsp;cty r twn
+			43 Th flyng r prtng f plns r rcrft
+		exolve-down:
+			1 37th prsdnt f th .S.
+			2 vngrs mmbr bsd n&nbsp;&nbsp;Nrs gd
+			3 xtr-thck blnkt
+			4 Strng xprssn f pblc dspprvl
+			5 Qstn rltng t tm
+			6 Grl wh ntrs Wndrlnd thrgh&nbsp;&nbsp;rbbt hl
+			7 Nrs prts frm sthrn Scndnv n th 8th-11th cntry
+			8 ngl lss thn nnty dgrs
+			9 Cmmnd trggrd by Ctrl-Z
+			12 Brnch f ngnrng fcsng n mchnry
+			14 Dr jnt
+			17 Fcsng prt n&nbsp;&nbsp;tlscp r mgnfyng glss
+			18 f&nbsp;&nbsp;cntry, hvng th pwr t gvrn tslf
+			19 rgnsd rfsl t wrk by&nbsp;&nbsp;bdy f wrkrs
+			20 Typ f pzzl nvlvng ssmblng mny pcs nt&nbsp;&nbsp;pctr
+			21 Zdc sgn cmng bfr L
+			22 Nw nd thn (4 wrds)
+			23 Dcsn
+			25 Drnk cmmnly ffrd lngsd t
+			28 cn btwn Brtn nd mrc
+			29 Prsn t whm&nbsp;&nbsp;mllnnl mght sy "K"
+			31 ghth plnt n th Slr Systm
+			33 Wht y mght d t&nbsp;&nbsp;McDnlds ml
+			34 Whr sm wrkrs mt nd hny s prdcd
+			35 Th hll nxt t RC4
+			36 Cntry whs flg s hlf-bl nd hlf-yllw
+			37 Sydny ____ Hs (strln lndmrk)
+			38 Jpns frm f ptry wth&nbsp;&nbsp;fv-svn-fv syllbl strctr
+			39 Ky t th lft f th spc br
+	exolve-end
+	`;
+	</script>
+</head>
+
+<body onload="createPuzzle()">
+	<nav class="center">
+		<a href="/leopuzzlehunt">LeoPH main</a> | 
+		<a href="/leopuzzlehunt/2/puzzles">Puzzles</a> |
+		<a href="/leopuzzlehunt/2/teams">Leaderboard</a> | 
+		<a href="/leopuzzlehunt/guide">Solving guide</a> |
+		<a href="/leopuzzlehunt/faq">FAQ</a>
+		<span style="float:right;">
+			<b><a href="./submit">Call in an answer</a></b>
+		</span>
+	</nav>
+	<!-- There's no hints on any pages on the site. Nice try, though. -->
+	<article class="page">
+        <h1>Losing Your Voice</h1>
+		<p class="just">
+			<b>A:</b> "I think your internet connection is kinda spotty, you keep cutting in and out."<br />
+			<b>B:</b> "Oh no, if only there was a free and more reliable alternative to Zoom."
+		</p>
+		<div class="flavor">
+			<center>
+				Is that "Thnks fr th Mmrs" playing in the background?
+			</center>
+		</div>
+		<hr>
+		<div class="flex-col" id="outermost-stack">
+			<div id="title"></div>
+			<div id="current-clue-parent">
+			<div id="current-clue"></div>
+			</div>
+			<div class="flex-row">
+			<div id="grid-panel">
+				<div id="grid-parent-centerer">
+				<div id="grid-parent">
+					<svg id="grid" zoomAndPan="disable"></svg>
+					<div id="grid-input-wrapper" style="display:none;left:0;top:0"><input id="grid-input" type="text" maxlength="2" autocomplete="off" spellcheck="false" class="cell-text"/></div>
+					<div id="nina-group" style="display:none;left:0;top:0"></div>
+				</div> <!-- #grid-parent -->
+				</div> <!-- #grid-parent-centerer -->
+				<div id="controls-etc">
+				<div id="controls" class="wide-box">
+					<div id="button-row-1" class="controls-row">
+					<button id="clear" class="button"
+						onclick="clearCurrent()">Clear entry</button>
+					<button id="clear-all" class="button"
+						onclick="clearAll()">Clear all!</button>
+					</div> <!-- #button-row-1 -->
+				</div> <!-- #controls -->
+				<div id="errors"></div>
+				<div id="status">
+					Squares filled:
+					<span id="status-num-filled">0</span>/<span
+						id="status-num-total"></span>
+				</div> <!-- #status -->
+				<div id="saving" class="wide-box">
+					Your entries are saved automatically in a cookie, for the most
+					recent puzzle that you open from this site. Bookmark/save the
+					<a id="saving-url" href="">URL</a> for more reliable recovery.
+				</div> <!-- #saving -->
+				<div id="small-print" class="wide-box">
+					<div id="control-keys-list" style="display:none">
+					<ul>
+						<li>
+						<b>Tab/Shift-Tab:</b>
+						Jump to the next/previous clue in the current direction
+						</li>
+						<li>
+						<b>Enter, Click/Tap:</b>
+						Toggle current direction
+						</li>
+						<li>
+						<b>Arrow keys:</b>
+						Move to the nearest light square in that direction
+						</li>
+					</ul>
+					<div>
+						Scratch pad:<br/>
+						<textarea oninput="scratchPadInput()"
+						id="scratchpad" spellcheck="false"
+						rows="2" cols="60"></textarea>
+					</div>
+					</div>
+					<a id="show-control-keys" href=""
+					title="Show/hide tools: list of control keys and scratch pad"
+					onclick="toggleShowControls();return false">Tools</a>|
+					<a id="report-bug"
+					href="https://github.com/viresh-ratnakar/exolve/issues/new">Report
+					bug</a>|
+					<a id="exolve-link"
+					href="https://github.com/viresh-ratnakar/exolve">Exolve on Github</a>(&#169; 2019 Viresh Ratnakar)
+					<br />
+					</div> <!-- #small-print -->
+				<div id="questions" class="wide-box"></div> 
+				<div id="submit-parent">
+					<button id="submit" class="button" style="display:none"
+						onclick="submitSolution()">Submit!</button>
+				</div> <!-- submit-parent -->
+				<div id="explanations" class="wide-box" style="display:none"></div>
+				</div> <!-- #controls-etc -->
+				<br/>
+			</div> <!-- #grid-panel -->
+			<div id="clues" class="flex-row">
+				<div id="across-clues-panel" class="clues-box" style="display:none">
+				<b>Across</b>
+				<table id="across"></table>
+				<br/>
+				</div> <!-- #across-clues-panel -->
+				<div id="down-clues-panel" class="clues-box" style="display:none">
+				<b>Down</b>
+				<table id="down"></table>
+				<br/>
+				</div> <!-- #down-clues-panel -->
+				<div id="nodir-clues-panel" class="clues-box" style="display:none">
+				<hr/>
+				<table id="nodir"></table>
+				<br/>
+				</div> <!-- #nodir-clues-panel -->
+			</div> <!-- #clues -->
+			</div>
+		</div> <!-- #outermost-stack -->
+	</article>
+</body>
+</html>
