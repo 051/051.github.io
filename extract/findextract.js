@@ -1,5 +1,5 @@
 function solve() {
-	const words = document.getElementById("answers").value.split(/[\s,]+/).map(ans => ans.toUpperCase());
+	const words = document.getElementById("answers").value.split(/[\s,]+/).map(ans => ans.replace(/\W/g, '').toUpperCase());
 	const target = document.getElementById("target").value.replace(/\W/g, '').toUpperCase();
 	const V = words.length + target.length;
 	const AL = makeGraph(words, target);
