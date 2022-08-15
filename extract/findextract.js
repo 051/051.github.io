@@ -1,6 +1,6 @@
 function solve() {
 	const words = document.getElementById("answers").value.split(/[\s,]+/).map(ans => ans.toUpperCase());
-	const target = document.getElementById("target").value.toUpperCase();
+	const target = document.getElementById("target").value.replace(/\W/g, '').toUpperCase();
 	const V = words.length + target.length;
 	const AL = makeGraph(words, target);
 	[count, matching] = doMatch(AL, V); // this feels illegal
