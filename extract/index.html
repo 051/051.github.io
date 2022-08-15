@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main | Level 51</title>
+    <link type='text/css' rel='stylesheet' href='https://051.github.io/stylesheets/main.css'>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+	<script src="./findextract.js"></script>
+	<style>
+		button {
+			background-color: #B00000;
+			border: none;
+			color: white;
+			padding: 8px 15px;
+			text-align: center;
+			font-family: Nunito;
+			font-size: 12pt;
+			border-radius: 8px;
+		}
+		textarea.big {
+			width: 600px;
+			height: 225px;
+			font-size: 16px;
+			font-family: Nunito;
+			border-radius: 4px;
+			padding: 8px;
+			margin-bottom: 24px;
+			resize: both;
+		}
+		textarea.small {
+			height: 100px;
+			border-radius: 4px;
+			padding: 8px;
+			margin-bottom: 24px;
+			resize: both;
+		}
+		h1 {
+			padding: 0;
+		}
+		p {
+			text-align: justify;
+			text-justify: inter-word;
+		}
+	</style>
+</head>
+<body>
+	<nav class="center">
+		<a href="/">Home</a> |
+		<a href="/puzzles">Puzzles</a> |
+		<a href="/leopuzzlehunt">Leo Puzzle Hunt</a>
+	</nav>
+    <article class="page">
+        <h1>Extraction finder</h1>
+		<p>This tool takes a target word and a list of candidates, and determines if the target word can be extracted from the candidates
+		via indexing. Enter the word you want to extract and the words you can index into, separated by commas or whitespace, then click "Solve!".</p>
+		<p>Target word: <input id="target"></input></p>
+		<p>Candidate extractees:<br/><textarea id="answers" class="big"></textarea></p>
+		<p><button onclick="solve()"><b>Solve!</b></button></p>
+		<p id="output"></p>
+    </article>
+</body>
+</html>
