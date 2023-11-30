@@ -1,0 +1,84 @@
+<head>
+    <link type='text/css' rel='stylesheet' href='https://051.github.io/stylesheets/main.css'>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+	<style>
+		.slider table {
+			margin-left: auto;
+			margin-right: auto;
+			table-layout : fixed;
+			width: 300px;
+		}
+		
+		.hole {
+			background-color: #bbbbbb;
+		}
+
+		.slider td {
+			border: 1.5px solid #000000;
+			text-align: center;
+			vertical-align: middle;
+			-webkit-user-select: none; /* Safari */
+			-ms-user-select: none; /* IE 10 and IE 11 */
+			user-select: none; /* Standard syntax */
+		}
+		
+		.slider tr {
+			height: 60px;
+		}
+		
+		h1 {
+			padding: 0;
+		}
+		p.about {
+			text-align: justify;
+			text-justify: inter-word;
+		}
+		button {
+			background-color: #B00000;
+			border: none;
+			color: white;
+			padding: 6px;
+			text-align: center;
+			font-family: Nunito;
+			font-size: 12pt;
+			border-radius: 8px;
+			width: 80px;
+		}
+	</style>
+</head>
+<body>
+    <article class="page">
+	<h1>Slider puzzle</h1>
+	<p class="about">
+		Click a tile to try to move it.
+		You can move multiple tiles in the same row or column at once (click the furthest tile and it will push other tiles).
+		Complete the puzzle by sorting all the tiles into the correct order (1-24 in reading order, with the hole in the bottom-right).
+		Press [space] to start a game or mark a running game as complete.
+	</p>
+	<p class="about">
+		<em>Note: press "Finish" / [space] to mark a game as complete (your timer will keep running until you do).</em>
+	</p>
+	<center>
+	<div class="slider">
+	<table><tbody>
+	<tr><td id="r0c0" onclick="try_to_move(0, 0)"></td><td id="r0c1" onclick="try_to_move(0, 1)"></td><td id="r0c2" onclick="try_to_move(0, 2)"></td><td id="r0c3" onclick="try_to_move(0, 3)"></td><td id="r0c4" onclick="try_to_move(0, 4)"></td></tr>
+	<tr><td id="r1c0" onclick="try_to_move(1, 0)"></td><td id="r1c1" onclick="try_to_move(1, 1)"></td><td id="r1c2" onclick="try_to_move(1, 2)"></td><td id="r1c3" onclick="try_to_move(1, 3)"></td><td id="r1c4" onclick="try_to_move(1, 4)"></td></tr>
+	<tr><td id="r2c0" onclick="try_to_move(2, 0)"></td><td id="r2c1" onclick="try_to_move(2, 1)"></td><td id="r2c2" onclick="try_to_move(2, 2)"></td><td id="r2c3" onclick="try_to_move(2, 3)"></td><td id="r2c4" onclick="try_to_move(2, 4)"></td></tr>
+	<tr><td id="r3c0" onclick="try_to_move(3, 0)"></td><td id="r3c1" onclick="try_to_move(3, 1)"></td><td id="r3c2" onclick="try_to_move(3, 2)"></td><td id="r3c3" onclick="try_to_move(3, 3)"></td><td id="r3c4" onclick="try_to_move(3, 4)"></td></tr>
+	<tr><td id="r4c0" onclick="try_to_move(4, 0)"></td><td id="r4c1" onclick="try_to_move(4, 1)"></td><td id="r4c2" onclick="try_to_move(4, 2)"></td><td id="r4c3" onclick="try_to_move(4, 3)"></td><td id="r4c4" onclick="try_to_move(4, 4)"></td></tr>
+	</tbody></table>
+	</div>
+	<p>
+		<button onclick="start_game()"><b>Start</b></button>
+		<button onclick="try_to_end_game()"><b>Finish</b></button>
+		<button onclick="restart_game()"><b>Restart</b></button></p>
+	</p>
+	<p id="info"></p>
+	</center>
+	</article>
+</body>
+<script src="./slider.js"></script>
+<script>
+	render_grid();
+</script>
+	
