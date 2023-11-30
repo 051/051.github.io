@@ -106,12 +106,11 @@ function randomize() {
 }
 
 function start_game() {
-	if (!game_running) {
-		randomize();
-		start_time = Date.now();
-		game_running = true;
-		moves = 0;
-	}
+	if (game_running) return;
+	randomize();
+	start_time = Date.now();
+	game_running = true;
+	moves = 0;
 }
 
 function restart_game() {
@@ -120,6 +119,7 @@ function restart_game() {
 }
 
 function try_to_end_game() {
+	if (!game_running) return;
 	const NUM_TILES = NUM_ROWS * NUM_COLS;
 	var target = 0;
 	var corr = 0;
