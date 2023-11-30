@@ -106,8 +106,8 @@ function randomize() {
 		if (inb(hole_row+dirs[d][0], hole_col+dirs[d][1]) && (d + 2) % 4 != e) {
 			swap(hole_row, hole_col, hole_row+dirs[d][0], hole_col+dirs[d][1]);
 			e = d;
+			steps++;
 		}
-		steps++;
 	}
 	try_to_move(hole_row, 4);
 	try_to_move(4, 4);
