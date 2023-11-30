@@ -24,6 +24,14 @@ document.addEventListener("keyup", function(event) {
 	}
 });
 
+document.addEventListener("keyup", function(event) {
+	if (event.keyCode === 82) {
+		event.preventDefault();
+		restart_game();
+	}
+});
+
+
 function render_grid() {
 	for (var r = 0; r < NUM_ROWS; r++) {
 		for (var c = 0; c < NUM_COLS; c++) {
@@ -114,8 +122,19 @@ function start_game() {
 }
 
 function restart_game() {
+	reset_grid();	
 	game_running = false;
 	start_game();
+}
+
+function reset_grid() {
+	curr_grid = [[ 1,  2,  3,  4,  5],
+				 [ 6,  7,  8,  9, 10],
+				 [11, 12, 13, 14, 15],
+				 [16, 17, 18, 19, 20],
+				 [21, 22, 23, 24,  0]];
+	hole_row = 4;
+	hole_col = 4;
 }
 
 function try_to_end_game() {
