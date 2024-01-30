@@ -16,30 +16,6 @@
 			});
 		}
 	</script>
-	<style>
-		button {
-			background-color: #B00000;
-			border: none;
-			color: white;
-			padding: 8px 15px;
-			text-align: center;
-			font-family: Nunito;
-			font-size: 12pt;
-			border-radius: 8px;
-		}
-		input {
-			width: 300px;
-			font-size: 16px;
-			font-family: Nunito;
-			border-radius: 4px;
-			padding-left: 4px;
-			margin-bottom: 24px;
-		}
-		select {
-			font-family: Nunito;
-			border-radius: 4px;
-		}
-	</style>
 </head>
 
 <body>
@@ -57,10 +33,10 @@
         <h1>Check your answer to <font color='#B00000'>Infrastructure Deconstruction</font></h1>
 		<center>
 			<h3>
-				<input id="checker" name="checker" placeholder="Your guess">
+				<input class="full-size" id="checker" name="checker" placeholder="Your guess">
 				<!-- lazy spacing -->
 				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-				<button id="validate" onclick='check(document.getElementById("checker").value, h)'><b>Check!</b></button>
+				<button class="big-red full-size" id="validate" onclick='check(document.getElementById("checker").value, h)'><b>Check!</b></button>
 			</h3>
 			<p><small>
 				Punctuation, spacing, and capitalisation aren't important; the answer checker automatically standardises those.

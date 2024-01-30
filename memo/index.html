@@ -6,16 +6,6 @@
 	<link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<style>
-		button {
-			background-color: #B00000;
-			border: none;
-			color: white;
-			padding: 8px 15px;
-			text-align: center;
-			font-family: Nunito;
-			font-size: 12pt;
-			border-radius: 8px;
-		}
 		textarea {
 			width: 600px;
 			height: 225px;
@@ -111,9 +101,9 @@
 			<br />
 			<textarea id="memo"></textarea>
 			<br />
-			<button onclick="save()">Save</button>&emsp;
-			<button onclick="monospace()">Toggle monospace</button>&emsp;
-			<button onclick="clear_data()">Clear saved data</button>
+			<button class="big-red full-size" onclick="save()">Save</button>&emsp;
+			<button class="big-red full-size" onclick="monospace()">Toggle monospace</button>&emsp;
+			<button class="big-red full-size" onclick="clear_data()">Clear saved data</button>
 			<p id="display" style="font-size:12px"></p>
 			<p style="font-size:8px">
 				(this tool has not been tested at all. use at your own risk. as a precaution, never store sensitive information on random sites like this one.)
