@@ -16,9 +16,7 @@ var moves;
 document.addEventListener("keyup", function(event) {
 	if (event.keyCode === 32) {
 		event.preventDefault();
-		if (game_running) {
-			try_to_end_game();
-		} else {
+		if (!game_running) {
 			start_game();
 		}
 	}
@@ -90,6 +88,7 @@ function try_to_move(r, c) {
 		}
 	}
 	moves++;
+	try_to_end_game();
 }
 
 function inb(r, c) {
@@ -152,15 +151,9 @@ function try_to_end_game() {
 		end_time = Date.now();
 		display_time(end_time - start_time, moves);
 		game_running = false;
-	} else {
-		display_unfin_error();
 	}
 }
 
 function display_time(dur, moves) {
 	document.getElementById("info").innerHTML = "You took " + dur / 1000 + " seconds and " + moves + " moves to solve the puzzle!";
-}
-
-function display_unfin_error() {
-	document.getElementById("info").innerHTML = "That puzzle doesn't look solved to me!";
 }
