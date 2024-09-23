@@ -1,0 +1,375 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>🎄 Christmas Cards 🎄</title>
+    <link type='text/css' rel='stylesheet' href='assets/main.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&family=Red+Hat+Mono&family=Red+Hat+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sticky post-story" style="display:none">
+        <h4>Quick links</h4>
+        <p><a href="#top">Prologue</a></p>
+        <p><a href="#deck">Your deck</a></p>
+        <p><b>Quests</b></p>
+        <div class="sticky-indent">
+        <p><a href="#tut">Tutorial</a><span class="quest-complete-0" style="display:none"> &#10004;&#65039;</span></p>
+        <span class="post-tut" style="display:none">
+            <p><a href="#psa">Making the Grade</a><span class="quest-complete-1" style="display:none"> &#10004;&#65039;</span></p>
+            <p><a href="#dung">Cardinal Directions</a><span class="quest-complete-2" style="display:none"> &#10004;&#65039;</span></p>
+            <p><a href="#fight">Hand-to-Hand Combat</a><span class="quest-complete-3" style="display:none"> &#10004;&#65039;</span></p>
+        </span>
+        <span class="meta" style="display:none">
+            <p><a href="#meta">Ace of Clubs</a><span class="epi" style="display:none"> &#10004;&#65039;</span></p>
+        </span>
+        </div>
+        <span class="epi" style="display:none">
+        <p><a href="#epi">Epilogue</a></p>
+        </span>
+    </div>
+    <article id="top" class="prologue page"> <!-- PROLOGUE -->
+        <h1>Christmas Cards</h1>
+        <p class="flavor">Note: This puzzle uses localStorage. To clear the localStorage used by this puzzle,
+            click <a href="javascript:clearAllStorage()">here</a>.</p>
+        <hr>
+        <p>It's Christmas morning! You're just making yourself a cup of hot cocoa when the doorbell rings. Looks like there's a last
+        minute delivery! You open the door, but see only a parcel on the floor. Curious, you set down your mug and begin to unwrap it.</p>
+        
+        <p>As you untie the festive ribbon, the package peels open and several Christmas cards fall out, revealing a deck of cards beneath
+        them. You instinctively open up the box and fan out the cards; it seems to be missing one card. How annoying! Puzzled, you turn
+        to the first Christmas card.</p>
+        
+        <div style="font-family:'Ephesis',cursive; font-size:24px;">
+        <p>Dear Matt,</p>
+        <p>I recently came across this deck of cards and immediately thought of you. It may not look like much, but I think you'll discover
+        it has rather surprising qualities. In this season of giving, I think you could put it to good use.</p>
+        <p style="text-align:right">Happy Holidays!</p>
+        </div>
+        
+        <p>Odd indeed. Just as you're thinking this, though, a gust of wind blows through the room, seemingly from within the pack of cards,
+        and out pops a very merry-looking ghost. You're quite taken aback, naturally: "wait, what is this, <i>A Christmas Carol</i>?"</p>
+        
+        <p>"No, no," the ghost replies. "just <i>A Christmas Card</i>. Common kerning error. Er, plural, actually&mdash;I believe there's an
+        entire deck here. Anyway, sorry for the sudden interruption! I'm the Christmas Spirit, and I'm here to spread some Christmas joy!
+        Now, come, follow me: we have three stops today, and I daresay those cards of yours will come in useful."</p>
+        
+        <p>"This seems like a pretty thinly-veiled excuse for puzzles," you respond.</p>
+        
+        <p>"Nonsense. Now follow me."</p>
+        
+        <p style="text-align:right"><a href="javascript:finishStory()">Let's go!</a></p>
+    </article>
+    
+    <div class="post-story" style="display:none">
+    <article class="deck page" id="deck"> <!-- DECK -->
+        <h2>Your deck</h2>
+        <p class="flavor">Click on a quest name to select it. Click a card to add it to the hand for the selected quest.</p>
+        <p>
+        <table class="clickable deck-list" id="deck-list">
+            <tr><td class="blank"></td><td>A♦️</td><td>A♥️</td><td>A♠️</td></tr>
+            <tr><td>2♣️</td><td>2♦️</td><td>2♥️</td><td>2♠️</td></tr>
+            <tr><td>3♣️</td><td>3♦️</td><td>3♥️</td><td>3♠️</td></tr>
+            <tr><td>4♣️</td><td>4♦️</td><td>4♥️</td><td>4♠️</td></tr>
+            <tr><td>5♣️</td><td>5♦️</td><td>5♥️</td><td>5♠️</td></tr>
+            <tr><td>6♣️</td><td>6♦️</td><td>6♥️</td><td>6♠️</td></tr>
+            <tr><td>7♣️</td><td>7♦️</td><td>7♥️</td><td>7♠️</td></tr>
+            <tr><td>8♣️</td><td>8♦️</td><td>8♥️</td><td>8♠️</td></tr>
+            <tr><td>9♣️</td><td>9♦️</td><td>9♥️</td><td>9♠️</td></tr>
+            <tr><td>10♣️</td><td>10♦️</td><td>10♥️</td><td>10♠️</td></tr>
+            <tr><td>J♣️</td><td>J♦️</td><td>J♥️</td><td>J♠️</td></tr>
+            <tr><td>Q♣️</td><td>Q♦️</td><td>Q♥️</td><td>Q♠️</td></tr>
+            <tr><td>K♣️</td><td>K♦️</td><td>K♥️</td><td>K♠️</td></tr>
+        </table>
+        </p>
+        <p>
+        <table class="selector-table">
+            <tr class="selector-row" id="selector-row">
+            <td class="sel-opt c1">Tutorial</td>
+            <td class="sel-opt c2 post-tut" style="display:none">Making the Grade</td>
+            <td class="sel-opt c3 post-tut" style="display:none">Cardinal Directions</td>
+            <td class="sel-opt c4 post-tut" style="display:none">Hand-to-Hand Combat</td>
+            </tr>
+            <tr>
+            <td id="hand-info-0"><span id="hand-size-0">0</span>/15 assigned</td>
+            <td class="post-tut" id="hand-info-1" style="display:none"><span id="hand-size-1">0</span>/8 assigned</td>
+            <td class="post-tut" id="hand-info-2" style="display:none"><span id="hand-size-2">0</span>/15 assigned</td>
+            <td class="post-tut" id="hand-info-3" style="display:none"><span id="hand-size-3">0</span>/13 assigned</td>
+            </tr>
+        </table>
+        </p>
+        <center><button onclick="clearGroups()">Clear all hands</button>
+        <span class="post-tut" style="display:none"><button onclick="toggleDeckTutorial()">Toggle deck tutorial</button></span></center>
+        
+        <article class="no-cards-global advice pre-tut"><p>Not sure what this deck's for yet? Check out the <a href="#tut">tutorial</a>!</p></article>
+        <article class="advice" id="deck-tutorial" style="display:none">
+            <p>
+            <ul>
+            <li>Select the <em>quest</em> to assign cards to by clicking the corresponding button under the deck.</li>
+            <li>Select the <em>cards</em> to assign to that quest by clicking the cards in the deck.
+            They'll change to the color of the quest you're assigning them to.
+            Made a mistake? Just click the card again to unassign it.</li>
+            <li>Clicking a selected quest again will unselect it. While no quest is selected, clicking a card will unassign it.</li>
+            <li>Each card can only be assigned to <em>one quest</em>!</li>
+            <li>Below each quest is its required hand size. You must assign <em>exactly</em> this number of cards to that quest to be able to start it.</li>
+            </ul>
+            </p>
+        </article>
+    </article>
+    
+    <article class="tut page" id="tut"> <!-- TUTORIAL -->
+        <div class="quest-complete-0 tick" style="display:none">&#10004;&#65039;</div>
+        <h2>Tutorial</h2>
+        <article class="pre-tut advice"><p>
+        Hey, it's me, <em>the Christmas Spirit</em>!
+        Okay, okay. I know what you're thinking: puzzles and cards and helpful tutorial giver, yeah, I get it.
+        But just to reassure you, I'm definitely not an evil carp bent on world domination.
+        </p></article>
+        <h3>Your hand</h3>
+        <p class="no-cards-0 cent">You don't have any cards assigned to this quest at the moment.</p>
+        <div class="some-cards-0 hand" id="hand-0" style="display:none"></div>
+        <article class="not-all-cards-0 advice"><p>
+            Oh no, it looks like you don't have
+                <span class="no-cards-0">any</span>
+                <span class="some-cards-0">the right number of</span>
+                <em>cards</em>! How are you going to complete your quest without them?
+            You should start by <em>assigning</em> some cards in your deck to your hand. This quest requires <em>fifteen</em> cards,
+            so make sure to assign <i>exactly</i> fifteen cards&mdash;no more, no less!
+            <ul>
+            <li>First, select the <em>quest</em> to assign cards to by clicking the corresponding button under the deck.</li>
+            <li>Then, select the <em>cards</em> to assign to that quest by clicking the cards in the deck.
+            They'll change to the color of the quest you're assigning them to.
+            Made a mistake? Just click the card again to unassign it.</li>
+            <li>Clicking a selected quest will unselect it. While no quest is selected, clicking a card will unassign it.</li>
+            </ul>
+            For now, why don't you assign some cards to this quest?
+            You can do this from your <a href="#deck">deck</a>.
+            This advice box will disappear once you add a card to your hand for this quest, but you can always review it by
+            clicking the "Toggle deck tutorial" button on the deck page.
+        </p></article>
+        <div class="all-cards-0" style="display:none">
+        <article class="no-lock-0 advice" style="display:none"><p>
+        Great, your hand's ready! To <em>lock in your hand</em> and start this quest, press the start button below.
+        You won't be able to change your hand while the quest is ongoing, but you can stop it and restart with a new hand at any time.
+        </p></article>
+        <center>
+            <button class="start-0" id="start-0" onclick="startGame(0)">Start quest!</button>
+            <button class="restart-0" id="restart-0" style="display:none" onclick="restartGame(0)">Restart quest</button>
+        </center>
+        </div>
+        <!-- BOILERPLATE END -->
+        <div class="game-window-0" id="game-window-0" style="display:none">
+            <hr>
+            <h3>Your assigned cards:</h3>
+            <div class="clickable hand" id="locked-hand-0"></div>
+            
+            <h3>Cards to give: <span style="float:right">Stage <span id="tutorial-stage">1</span>/5</span></h3>
+            <button class="tutorial-submit" onclick="tutorialSubmit()" style="display:none;float:right">Submit this!</button>
+            <div class="clickable hand" id="tutorial-submission"></div>
+
+            <div class="tut-1">
+            <article class="advice"><p>
+            Quests are all about <em>helping people</em>. Sometimes, it's very clear how your cards can affect things. You should see a
+            copy of your collection appear just above; simply <em>click a card from your hand</em> to play it. Clickable objects will
+            usually cast a shadow when you mouse over them, so you can tell what's clickable and what's not. In this tutorial, you can always
+            <em>take a card back</em> after playing it but before submitting it, simply by clicking it again.
+            Other quests may not be so forgiving!
+            </p></article>
+            <p>🙂 Excuse me! Could you spare an <b>Ace of Hearts</b> for my collection?</p>
+            </div>
+            
+            <div class="tut-2" style="display:none">
+            <article class="advice"><p>
+            Way to go! Look at you, you've already helped someone! Sometimes, it won't be so clear what exactly you need to do.
+            Feel free to <em>play around</em> and try different things; usually, there's no penalty for getting an input wrong.
+            You can also always <em>restart a quest</em> using the button just under your hand if you think you don't have the
+            cards you need to complete a quest.
+            </p></article>
+            <p><span class="tut-2-base">🙁 Hey, I'm looking for <b>one card</b>. I'm not sure what it's called, but if you show me what you've got I can tell
+            you whether it's what I'm looking for!</span></p>
+            </div>
+            
+            <div class="tut-3" style="display:none">
+            <article class="advice"><p>
+            Sometimes, you'll need to use <em>multiple cards</em> at once. Here, you can just load all the cards into your submission
+            and submit them together.
+            </p></article>
+            <p>🤨 I heard you were giving out cards! I'm looking for <b>six cards</b>; they're three each in two different suits.
+            Um, I think the suit names are the same length. I also think there was only one picture card? And it had a name that ends
+            in a letter that starts the name of another kind of picture card. And the sum of the black cards' values was lower than
+            the sum of the red cards' values. And two pairs of the cards had the same values. And the black cards were all consecutive.
+            And the product of all the values of the number cards was 18816. But other than that, I'm not sure about what cards I need.
+            Sorry, I guess that's not much to work off.</p>
+            </div>
+            
+            <div class="tut-4" style="display:none">
+            <article class="advice"><p>
+            Sometimes, it seems like what's going on doesn't relate to cards at all. But it does! Somehow.
+            </p></article>
+            <p>🤓 I just learnt about "indexing" the other day. Have you heard of it? Anyway, I heard you were giving out stuff.
+            I need <b>a B and an O</b>!</p>
+            </div>
+            
+            <div class="tut-5" style="display:none">
+            <article class="advice"><p>
+            There's not always exactly one way to solve a problem, but keep in mind that you only have so many cards, and you need to
+            use them to <em>complete all your quests</em>. You can only use each card in <em>one quest</em>, so manage your resources wisely!
+            (I hear a quest will <em>uncomplete itself</em> if you change the hand associated with the quest, so try not to do that...)
+            </p></article>
+            <p>😎 So, real talk, I need a <b>full house</b>. Um, it needs to have three tens and two queens. Any combination will do.
+            No diamonds though please, those are my unlucky suit. Er, don't ask why I need the cards or what I'm using them for. It's
+            definitely a good deed.</p>
+            </div>
+            <div class="tutorial-results" id="tutorial-results" style="display:none"></div>
+            <div style="text-align: right">
+                <button class="advance-tutorial-button" onclick="advanceTutorialLevel()" style="display:none">Next task</button>
+            </div>
+        </div>
+        <div class="quest-complete-0" style="display:none">
+        <h2 class="quest-complete">🎓 Quest complete! 🎓</h2>
+        <article class="advice">
+        <p>You've done it! That was a great first quest completion!</p>
+        <p>Now that you know how this whole card deal (pun intended!) works, I think you're ready to move on to <em>more quests</em>!
+        I've marked out three more recipients for you, and you can now assign cards to your other quests as well. Remember that your goal
+        is to have <em>all the quests completed at once</em>, without reusing any card in your deck! Good luck!</p>
+        </article>
+        </div>
+    </article>
+    
+    <div class="post-tut" style="display:none">
+    <article class="psa page" id="psa"> <!-- Making the Grade -->
+        <div class="quest-complete-1 tick" style="display:none">&#10004;&#65039;</div>
+        <h2>Making the Grade</h2>
+        <p class="flavor">
+            "This poor PSA grader is sad because he hasn't seen a pristine card all year. What? That seems like a him kind of
+            problem? Okay, look, while that may be true, there's no reason we can't spread some joy."
+        </p>
+        <!-- BOILERPLATE START -->
+        <h3>Your hand</h3>
+        <p class="no-cards-1 cent">You don't have any cards assigned to this quest at the moment.</p>
+        <div class="some-cards-1 hand" id="hand-1" style="display:none"></div>
+        <div class="all-cards-1" style="display:none">
+        <center>
+            <button class="start-1" id="start-1" onclick="startGame(1)">Start quest!</button>
+            <button class="restart-1" id="restart-1" onclick="restartGame(1)" style="display:none">Restart quest</button>
+        </center>
+        </div>
+        <!-- BOILERPLATE END -->
+        <div class="game-window-1" id="game-window-1" style="display:none">
+            <hr>
+            <h3>Your collection:</h3>
+            <div class="clickable hand" id="locked-hand-1"></div>
+            
+            <h3>Your submission: <span style="float:right">Stage <span id="grade-stage">1</span>/3</span></h3>
+            <button class="psa-grade-button" onclick="gradeCollection()" style="display:none;float:right">Grade this hand!</button>
+            <div class="clickable hand" id="psa-submission"></div>
+            <div class="psa-results" id="psa-results"></div>
+            <div style="text-align: right">
+                <button class="advance-grade-button" onclick="advanceGradeLevel()" style="display:none">Next stage</button>
+            </div>
+        </div>
+        <h2 class="quest-complete quest-complete-1" style="display:none">💯 Quest complete! 💯</h2>
+    </article>
+    
+    <article class="dung page" id="dung"> <!-- Cardinal Directions -->
+        <div class="quest-complete-2 tick" style="display:none">&#10004;&#65039;</div>
+        <h2>Cardinal Directions</h2>
+        <p class="flavor">
+            "This explorer lacks direction. Let's help him find his way."
+        </p>
+        <!-- BOILERPLATE START -->
+        <h3>Your hand:</h3>
+        <p class="no-cards-2 cent">You don't have any cards assigned to this quest at the moment.</p>
+        <div class="some-cards-2 hand" id="hand-2" style="display:none"></div>
+        <div class="all-cards-2" style="display:none">
+        <center>
+            <button class="start-2" id="start-2" onclick="startGame(2)">Start quest!</button>
+            <button class="restart-2" id="restart-2" onclick="restartGame(2)" style="display:none">Restart quest</button>
+        </center>
+        </div>
+        <!-- BOILERPLATE END -->
+        <div class="game-window-2" id="game-window-2" style="display:none">
+            <hr>
+            <h3>Your actions:</h3>
+            <div class="clickable hand" id="locked-hand-2"></div>
+            <div class="map-wrapper">
+                <div class="map-left">
+                    <div class="map" id="map"></div>
+                    <div class="under-map">
+                        <p class="map-description" id="map-description"></p>
+                        <div class="inventory" id="inventory">
+                            <table id="inventory-table"><tr id="inventory-row"><td>-</td><td>-</td><td>-</td><td>-</td></tr></table>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-log" id="map-log"></div>
+            </div>
+        </div>
+        <h2 class="quest-complete quest-complete-2" style="display:none">🧭 Quest complete! 🧭</h2>
+    </article>
+    
+    <article class="fight page" id="fight"> <!-- Hand-to-Hand Combat -->
+        <div class="quest-complete-3 tick" style="display:none">&#10004;&#65039;</div>
+        <h2>Hand-to-Hand Combat</h2>
+        <p class="flavor">
+            "This warrior is hopelessly outmatched&mdash;a perfect time to manifest the power contained in your cards."
+        </p>
+        <!-- BOILERPLATE START -->
+        <h3>Your hand:</h3>
+        <p class="no-cards-3 cent">You don't have any cards assigned to this quest at the moment.</p>
+        <div class="some-cards-3 hand" id="hand-3" style="display:none"></div>
+        <div class="all-cards-3" style="display:none">
+        <center>
+            <button class="start-3" id="start-3" onclick="startGame(3)">Start quest!</button>
+            <button class="restart-3" id="restart-3" onclick="restartGame(3)" style="display:none">Restart quest</button>
+        </center>
+        </div>
+        <!-- BOILERPLATE END -->
+        <div class="game-window-3" id="game-window-3" style="display:none">
+            <hr>
+            <h3>Your arsenal: <span style="float:right">Stage <span id="fight-stage">1</span>/4</span></h3>
+            <div class="clickable hand" id="locked-hand-3"></div>
+            <div class="battle-wrapper" id="battle-wrapper">
+                <div class="fight-view" id="fight-view">
+                    <div class="fight-you" id="fight-you"></div>
+                    <div class="fight-enemies" id="fight-enemies"></div>
+                </div>
+                <div class="battle-log" id="battle-log">
+                </div>
+            </div>
+            <button class="restart-fight fight-extra-button" onclick="loadFightLevel()" style="float:right">Restart this battle</button>
+            <button class="next-fight fight-extra-button" onclick="startNextFightLevel()" style="display:none;float:right">Next battle!</button>
+        </div>
+        <h2 class="quest-complete quest-complete-3" style="display:none">⚔️ Quest complete! ⚔️</h2>
+    </article>
+    
+    <article class="meta page" id="meta" style="display:none"> <!-- Meta -->
+        <h1>Ace of Clubs</h1>
+        <p class="cent">
+        Oh, what's this? The missing card was in the package the entire time! You pick it up and inspect it; after all, it
+        <i>is</i> your last remaining card. As you look it over and reflect on your day, you can't help but wonder: <em>how
+        did you always manage to find the right card at the right time?</em>
+        </p>
+        <img class="meta-pic" src="assets/meta-curve.png" />
+        <p class="cent"><input class="meta-input" id="meta-input"></input>
+        <button class="meta-submit" id="meta-submit" onclick="submitMeta()">Submit</button></p>
+        <h2 class="epi quest-complete" style="display:none">Meta complete!</h2>
+    </article>
+    <article class="epi page" id="epi" style="display:none"> <!-- Epilogue -->
+        <h1>Epilogue</h1>
+        <p>Ah, <em>IT'S A HALLMARKED DECK</em>! The Christmas Spirit itself must have guided your hands as you played through
+        your cards. (Well, not to give the Spirit <i>all</i> the credit&mdash;there was a fair bit of planning involved in there.)
+        Even now, you can feel the festive aura surround you, sending a joyous calm through your body.</p>
+        <p>As you settle back into your seat, you realize your hot cocoa is still hot.<span style="float:right">∎</span></p>
+        <hr>
+        <img class="meta-pic" src="assets/card.png" />
+    </article>
+    </div>
+    </div>
+    <br/><br/><br/><br/><br/>
+</body>
+<script src="assets/hunt.js"></script>
+<script src="assets/tutorial.js"></script>
+<script src="assets/grade.js"></script>
+<script src="assets/map.js"></script>
+<script src="assets/fight.js"></script>

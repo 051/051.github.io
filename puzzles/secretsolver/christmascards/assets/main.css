@@ -1,0 +1,540 @@
+/* FONT */
+html {
+  font-family: 'Red Hat Text', sans-serif;
+}
+
+@media (max-width: /*bodywidth*/54em) { /* Use smaller fonts and line-height on smaller screens. */
+  html { font-size: 14px; line-height: 160%; }
+}
+@media (max-width: /*bodywidth*/26em) {
+  html { font-size: 12px; line-height: 150%; }
+}
+
+pre, code {
+  font-family: 'Red Hat Mono', monospace;
+}
+
+/* DEFAULTS */
+* {
+  box-sizing: border-box;              /* Element width/height includes the border. */
+}
+
+*:target {
+  background-color: #ff6;              /* Highlight elements in URL fragment, e.g. #some-header, or #footnote-1. */
+}
+
+html {
+  background-color: #dfffdf;           /* Neutral background to contrast with the page. */
+  color: /*textcolor*/#252525;         /* Slightly less "harsh" black; looks subtly better. */
+       tab-size: 4;                    /* Tab size of 4 is probably more common in editors etc. */
+  -moz-tab-size: 4;                    /* Still needed as of Jan 2019 :-( */
+}
+
+html, body {
+  margin: 0;                           /* No extra margin; shows up in some cases (e.g. when printing). */
+}
+
+.center, .page {
+  max-width: /*bodywidth*/54rem;       /* Don't make it too wide, as that makes it harder to read. */
+  margin: 3rem auto;                   /* Add some extra space at top/bottom, and centre it. */
+  position: relative;
+}
+
+.page {
+  padding: /*pady*/2rem /*padx*/4rem;  /* Small padding on top, larger on sides. */
+  background-color: /*bgcolor*/#fefefe;/* White background to override the html one */
+  box-shadow: 0 0 6px rgba(0,0,0,.2);  /* Box-shadow effect looks quite handsome here. */
+  border-radius: 16px;
+}
+@media (max-width: /*bodywidth*/54em) {
+  .page, .center {
+    max-width: 100%;                   /* Full-width page. */
+    padding: 0 1rem;                   /* Modest amount of padding to prevent wasting screen space. */
+  }
+}
+
+/* LINKS */
+a,
+a code,                                /* Otherwise it would just stay black text; common enough to include here. */
+.link {
+  color: #00f;                         /* Make sure colour is the same in all browsers. */
+  text-decoration: none;               /* Underlining can look "busy"; the colour on its own should be enough. */
+  transition: color .2s;               /* Animate the change in colour effect on hover; subtle but noticeable. */
+}
+a:hover, .link:hover {
+  text-decoration: underline;          /* Provide some feedback by underlining and changing colour. */
+  color: #6491ff;                      /* Light blue */
+}
+a:hover code  {
+  color: #6491ff;                      /* Also change colour of code on hover. */
+}
+
+.link {
+  background-color: transparent;       /* Reset basic appearance. */
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  line-height: 1rem;
+  display: inline;
+
+  -moz-user-select: inherit;           /* Otherwise text isn't selectable. */
+  -webkit-appearance: none;
+}
+
+/* BUTTONS */
+button {
+  background-color: #00873E;
+  border: none;
+  color: white;
+  padding: 4px 6px;
+  text-align: center;
+  font-family: 'Red Hat Text';
+  font-size: 12pt;
+  border-radius: 6px;
+  font-weight: bold;
+  width: 180px;
+  cursor: pointer;
+}
+
+.not-ready button {
+  background-color: #aaaaaa;
+  cursor: default;
+}
+
+button + button {
+  margin-left: 1em;
+}
+
+/* HEADERS */
+h1 {
+  text-align: center;
+  padding: 0;
+  margin: 0em;                                     /* way too wide otherwise */
+  font-size: 48pt;                               /* overcompensating for small font */
+  font-family: 'Ephesis', cursive;
+  color: #b59410;                      /* Christmassy gold */
+}
+
+h2 {
+  text-align: center;
+  border-bottom: 1px solid #252525;       /* Underline to stand out more. */
+  padding-bottom: .2em;                /* Border not too close to the text. */
+  font-size: 1.6em;
+}
+
+h3 {
+  font-size: 1.3em;                    /* Default of 1.6em is pretty large. */
+  margin-bottom: .2em;
+}
+
+h4 {
+  font-size: 1.1em;                    /* Slightly larger than default of 1em. */
+}
+
+h5, h6 {
+  font-size: 1em;                      /* Don't make h5 and h6 smaller than base font. */
+}
+
+/* IMAGES */
+img {
+  max-width: 100%;                     /* Make sure it's never larger than the page. */
+}
+
+h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+  background-color: transparent;       /* Don't include grey background in headers, looks ugly. */
+  box-shadow: none;
+  color: inherit;
+}
+
+/* COLUMNS */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* TABLES */
+table + table {
+  margin-top: 2em;                     /* Add margin for subsequent tables. */
+}
+
+tfoot tr:first-child {
+  border-top: 1px solid #ddd;          /* Continue border on first tfoot row; removed with tbody tr:last-child. */
+}
+
+td, th {
+  padding: .2em .5em;                  /* Whitespace on top/bottom to make it less dense. */
+                                       /* And to the side to prevent cells from touching. */
+  hyphens: none;                       /* Disable hyphenation by default, as it tends to wreak havoc with cell width calculations. */
+}
+
+hr {
+  border-top: 1px solid #999999;
+}
+
+/* NEW STYLES */
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+p.rt {
+  text-align: right;
+}
+
+p.cent {
+  text-align: center;
+}
+
+ul {
+  list-style-image: url('li.svg');
+}
+
+.flavor {
+  font-style: italic;
+  color: #999999;
+  text-align: center;
+  font-size: 12pt;
+}
+
+em {
+  font-style: normal;
+  font-weight: bold;
+  color: #c5a420;
+}
+
+/* PUZZLE-SPECIFIC */
+
+/* DIVS */
+
+.advice {
+  background-color: #eee;
+}
+
+.advice, .puzzle-box {
+  box-shadow: 0 0 6px rgba(0,0,0,.2);
+  border-radius: 16px;
+  padding: 0.2rem 1rem;
+  position: relative;
+  margin: 1em 0em 1em 0em;
+}
+
+.advice > p, .advice > ul, .sticky > h4, .sticky p {
+  margin: 0.1rem;
+}
+
+div.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  float: left;
+  top: 0;
+  width: 240px;
+  background-color: transparent;
+  box-shadow: 0 0 8px rgba(0,0,0,.2);
+  border-radius: 0px 12px 12px 0px;
+  padding: 0.5rem 1rem;
+}
+
+.sticky-indent p {
+  font-size: 11pt;
+  text-indent: 12px;
+  text-align: left;
+}
+
+.tick {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  float: right;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  background-color: #efffef;
+  border-radius: 30px;
+  box-shadow: 0 0 8px rgba(0,122,0,.8);
+  font-size: 30px;
+  text-align: center; 
+}
+
+/* DECK TABLES */
+table.deck-list, table.selector-table {
+  margin-left: auto;
+  margin-right: auto;
+  table-layout: fixed;
+  border-collapse: separate;
+}
+
+table.deck-list {
+  width: 360px;
+}
+
+table.selector-table {
+  width: 600px;
+}
+
+.deck-list td, .selector-table td, .hand td {
+  border: 0.5px solid #000000;
+  text-align: center;
+  border-radius: 12px;
+  vertical-align: middle;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.deck-list td {
+  font-weight: bold;
+}
+
+.selector-table td {
+  border: transparent;
+}
+
+.clickable td:hover, div.clickable-div:hover {
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0,0,0,.6);
+}
+
+.selector-row td {
+  font-weight: bold;
+  height: 60px;
+  width: 130px;
+  cursor: pointer;
+}
+
+.hand td {
+  border: transparent;
+  font-weight: bold;
+  width: 45px;
+}
+
+.hand {
+  margin-bottom: 1rem;
+}
+
+td.blank {
+  background-color: #ccc;
+}
+
+.c1 {
+  background-color: rgb(230,207,242);
+}
+
+.c2 {
+  background-color: rgb(191,225,246);
+}
+
+.c3 {
+  background-color: rgb(212,237,188);
+}
+
+.c4 {
+  background-color: rgb(255,229,160);
+}
+
+td.overflow {
+  background-color: rgb(255,207,201);
+  color: #ff0000;
+}
+
+td.full {
+  background-color: rgb(212,237,188);
+  color: rgb(17,115,75);
+}
+
+td.focus {
+  box-shadow: 0 0 6px rgba(0,0,0,.8);
+}
+
+/* INDIVIDUAL PUZZLES */
+
+/* TUTORIAL */
+
+.tut-spacer {
+  margin-top: 40px;
+}
+
+/* MAKING THE GRADE */
+
+.advance-grade-button, .advance-tutorial-button {
+  margin-bottom: 1em;
+}
+
+.quest-complete {
+  border-bottom: none;
+  color: #b59410;
+}
+
+/* HAND TO HAND COMBAT */
+.battle-wrapper {
+  display: flex;
+  margin-top: 40px;
+}
+
+.fight-view {
+  flex: 3;
+  height: 300px;
+  margin-right: 10px;
+  border-radius: 16px;
+  padding: 0.2rem 1rem;
+}
+
+.battle-log {
+  flex: 2;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 300px;
+  border-radius: 16px;
+  padding: 0.2rem 1rem;
+  background-color: rgb(255,229,160);
+  margin-bottom: 3em;
+}
+
+.battle-log-header {
+  position: relative;
+  bottom: 69px;         /* oh grow up */
+  height: 60px;
+  line-height: 60px;
+  font-size: 24px;
+  text-align: right;
+}
+
+td.battle-focus {
+  box-shadow: 0 0 8px rgba(255,0,0,.8) !important;
+}
+
+.fight-view {
+  display: flex;
+  justify-content: center;
+}
+
+.fight-you {
+  text-align: center;
+}
+
+.fight-enemies {
+  display: flex;
+  position: absolute;
+  top: 530px;
+  align-items: center;
+  justify-content: center;
+}
+
+.one-enemy {
+  flex: 1;
+  padding: 16px;
+  border-radius: 16px;
+  width: 150px;
+  background-color: rgb(255,229,160);
+}
+
+.battle-log p, .map-log p {
+  text-align: left;
+}
+
+button.fight-extra-button {
+  position: absolute;
+  bottom: 40px;
+  right: 120px;
+}
+
+progress::-webkit-progress-bar {background-color: #ccc; width: 100%;}
+progress {background-color: #ccc;}
+
+progress::-webkit-progress-value {background-color: green !important;}
+progress::-moz-progress-bar {background-color: green !important;}
+progress {color: green;}
+
+/* CARDINAL DIRECTIONS */
+.map table, .inventory table {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+  border: 1.5px solid #000;
+}
+
+.map td, .inventory td {
+  text-align: center;
+  border: 1px dashed #000;
+  vertical-align: middle;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.map-wrapper {
+  display: flex;
+  margin-top: 40px;
+}
+
+.map-left {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  border-radius: 16px;
+  padding-top: 10px;
+}  
+
+.map {
+  margin-right: 10px;
+  border-radius: 16px;
+  padding: 10px 0;
+}
+
+.under-map {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-description {
+  flex: 1;
+  text-align: center;
+}
+
+.inventory {
+  flex: 1;
+  text-align: center;
+}
+
+.map-log {
+  flex: 2;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 500px;
+  border-radius: 16px;
+  padding: 0.2rem 1rem;
+  background-color: rgb(212,237,188);
+}
+
+.meta-pic {
+  border-radius: 24px;
+  box-shadow: 0 0 8px rgba(181, 148, 16, .8);
+  display: block;
+  margin: 40px auto;
+}
+
+.meta-input {
+  font-family: 'Red Hat Text', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 32px;
+  border-radius: 8px;
+  padding: 2px 8px;
+  width: 270px;
+}
+
+.meta-submit {
+  line-height: 28px;
+  width: 100px;
+}
