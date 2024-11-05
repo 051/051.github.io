@@ -116,7 +116,7 @@ function textContent(hand) {
 
 function queen(s) {
     const c = s.slice(-1);
-    return c == 'Z' ? s + 'A' : String.fromCharCode(c.charCodeAt() + 1);
+    return c == 'Z' ? 'A' : String.fromCharCode(c.charCodeAt() + 1);
 }
 
 function king(s) {
