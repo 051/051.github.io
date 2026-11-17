@@ -1,0 +1,68 @@
+<head>
+    <link type='text/css' rel='stylesheet' href='https://051.github.io/stylesheets/main.css'>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="./data.js"></script>
+    <script src="./find.js"></script>
+</head>
+<body>
+    <article class="page">
+	<h1>Towers of Babble lookup</h1>
+	<p>
+        Rack: <input id="rack"></input>
+    </p>
+    <p>
+        <p>
+        <label for="type-select">Word type:</label>
+        <select name="types" id="type-select">
+            <option value="tower">Tower</option>
+            <option value="harvester">Harvester</option>
+            <option value="mod">Mod</option>
+        </select>
+        </p>
+        <!-- Towers -->
+        <p>
+        <input type="checkbox" id="armor"><label for="armor">Armor</label>
+        <input type="checkbox" id="rate"><label for="rate">Atk Spd</label>
+        <input type="checkbox" id="chain"><label for="chain">Chain</label>
+        <input type="checkbox" id="crit"><label for="crit">Crit</label>
+        <input type="checkbox" id="damage"><label for="damage">Damage</label>
+        <input type="checkbox" id="health"><label for="hp">Health</label>
+        <input type="checkbox" id="knockback"><label for="knockback">Knockback</label>
+        <input type="checkbox" id="multishot"><label for="multishot">Multishot</label>
+        <input type="checkbox" id="pierce"><label for="pierce">Pierce</label>
+        <input type="checkbox" id="poison"><label for="poison">Poison</label>
+        <input type="checkbox" id="range"><label for="range">Range</label>
+        <input type="checkbox" id="shred"><label for="shred">Shred</label>
+        <input type="checkbox" id="slow"><label for="slow">Slow</label>
+        <input type="checkbox" id="splash"><label for="splash">Splash</label>
+        <input type="checkbox" id="stun"><label for="stun">Stun</label>
+        </p>
+        <!-- Auras -->
+        <p>
+        <input type="checkbox" id="armor_aura"><label for="armor_aura">Armor Aura</label>
+        <input type="checkbox" id="rate_aura"><label for="rate_aura">Atk Spd Aura</label>
+        <input type="checkbox" id="burn_aura"><label for="burn_aura">Burn Aura</label>
+        <input type="checkbox" id="damage_aura"><label for="damage_aura">Damage Aura</label>
+        <input type="checkbox" id="heal_aura"><label for="heal_aura">Heal Aura</label>
+        <input type="checkbox" id="slow_aura"><label for="slow_aura">Slow Aura</label>
+        </p>
+        <!-- Harvesters -->
+        <p>
+        <input type="checkbox" id="harvest_amount"><label for="harvest_amount">Harvest Amount</label>
+        <input type="checkbox" id="harvest_speed"><label for="harvest_speed">Harvest Speed</label>
+        <input type="checkbox" id="multi_harvest"><label for="multi_harvest">Multi-Harvest</label>
+        <input type="checkbox" id="harvest_aura"><label for="harvest_aura">Harvest Aura</label>
+        </p>
+        <p>
+        <input type="checkbox" id="wood"><label for="wood">Wood</label>
+        <input type="checkbox" id="crystal"><label for="crystal">Crystal</label>
+        <input type="checkbox" id="ore"><label for="ore">Ore</label>
+        </p>
+    </p>
+    <p>
+	<button class="big-red full-size" onclick="search()">Find words!</button>
+    </p>
+	<div id="output"></div>
+	</article>
+</body>
