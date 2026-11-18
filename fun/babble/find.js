@@ -33,6 +33,8 @@ var OPTS = {
     "crystal": false,
     "ore": false,
     "rack": "",
+    "must_have": "",
+    "must_start": "",
     "unit_type": "",
 };
 
@@ -88,7 +90,10 @@ function search() {
     if (OPTS.unit_type == SELECT_HARVESTER) units = filterHarvesters(units);
     if (OPTS.unit_type == SELECT_MOD) units = filterMods(units);
 
-    if (OPTS.rack != "") units = units.filter(u => canFormWord(OPTS.rack, answerize(u.word)));
+    // letter checks at the end to reduce the number of words to run on
+    if (OPTS.rack != "") units = units.filter(u => canFormWord(answerize(OPTS.rack), answerize(u.word)));
+    if (OPTS.must_have != "") units = units.filter(u => canFormWord(answerize(u.word), answerize(OPTS.must_have)));
+    if (OPTS.must_start != "") units = units.filter(u => answerize(u.word)[0] == answerize(OPTS.must_start)[0]);
 
     // rough sort for now -- approximately puts "better" stuff higher
     units.sort((a, b) => b.budget - a.budget);
@@ -115,6 +120,8 @@ function readInputs() {
     }
     
     OPTS.rack = answerize(document.getElementById("rack").value);
+    OPTS.must_have = answerize(document.getElementById("must_have").value);
+    OPTS.must_start = answerize(document.getElementById("must_start").value);
     OPTS.unit_type = document.getElementById("unit_type").value;
 }
 
@@ -362,7 +369,7 @@ function isBetterThanDefault(ref, val) {
 }
 
 function answerize(ans) {
-    return ans.replace(/[^a-zA-Z0-9]/gi, "").toUpperCase();
+    return ans.replace(/[^a-zA-Z]/gi, "").toUpperCase();
 }
 
 function canFormWord(rackString, word) {
