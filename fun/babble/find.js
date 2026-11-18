@@ -33,6 +33,7 @@ var OPTS = {
     "crystal": false,
     "ore": false,
     "rack": "",
+    "blanks": 0,
     "must_have": "",
     "must_start": "",
     "unit_type": "",
@@ -91,9 +92,9 @@ function search() {
     if (OPTS.unit_type == SELECT_MOD) units = filterMods(units);
 
     // letter checks at the end to reduce the number of words to run on
-    if (OPTS.rack != "") units = units.filter(u => canFormWord(answerize(OPTS.rack), answerize(u.word)));
-    if (OPTS.must_have != "") units = units.filter(u => canFormWord(answerize(u.word), answerize(OPTS.must_have)));
     if (OPTS.must_start != "") units = units.filter(u => answerize(u.word)[0] == answerize(OPTS.must_start)[0]);
+    if (OPTS.must_have != "") units = units.filter(u => canFormWord(answerize(u.word), answerize(OPTS.must_have), 0));
+    if (OPTS.rack != "" || OPTS.blanks > 0) units = units.filter(u => canFormWord(answerize(OPTS.rack), answerize(u.word), OPTS.blanks));
 
     // rough sort for now -- approximately puts "better" stuff higher
     units.sort((a, b) => b.budget - a.budget);
@@ -120,6 +121,7 @@ function readInputs() {
     }
     
     OPTS.rack = answerize(document.getElementById("rack").value);
+    OPTS.blanks = document.getElementById("rack").value.split("*").length - 1;  // I can't believe there isn't a built-in for this. wtf
     OPTS.must_have = answerize(document.getElementById("must_have").value);
     OPTS.must_start = answerize(document.getElementById("must_start").value);
     OPTS.unit_type = document.getElementById("unit_type").value;
@@ -372,13 +374,14 @@ function answerize(ans) {
     return ans.replace(/[^a-zA-Z]/gi, "").toUpperCase();
 }
 
-function canFormWord(rackString, word) {
+function canFormWord(rackString, word, blanks) {
     var rack = [...rackString];
     for (letter of [...word]) {
         if (rack.indexOf(letter) != -1) {
             rack.splice(rack.indexOf(letter), 1);
         } else {
-            return false;
+            if (blanks > 0) blanks--;
+            else return false;
         }
     }
     return true;
