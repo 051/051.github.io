@@ -197,7 +197,7 @@ function displayTowers(units) {
         const row = document.createElement("tr");
         // name
         const name_td = document.createElement("td");
-        name_td.textContent = unit.word.toUpperCase();
+        name_td.innerHTML = wrapWordInRecheckClickable(unit.word.toUpperCase());
         row.appendChild(name_td);
         // all attributes
         for (col of cols) {
@@ -264,7 +264,7 @@ function displayHarvesters(units) {
         const row = document.createElement("tr");
         // name
         const name_td = document.createElement("td");
-        name_td.textContent = unit.word.toUpperCase();
+        name_td.innerHTML = wrapWordInRecheckClickable(unit.word.toUpperCase());
         row.appendChild(name_td);
         // all attributes
         for (col of cols) {
@@ -330,7 +330,7 @@ function displayMods(units) {
         const row = document.createElement("tr");
         // name
         const name_td = document.createElement("td");
-        name_td.textContent = unit.word.toUpperCase();
+        name_td.innerHTML = wrapWordInRecheckClickable(unit.word.toUpperCase());
         row.appendChild(name_td);
         // all attributes
         for (col of cols) {
@@ -362,6 +362,17 @@ function displayMods(units) {
     document.getElementById("output").appendChild(table);
 }
 
+function subtractAndRecheck(word) {
+    var newRack = subtractWord(answerize(OPTS.rack), answerize(word));
+    document.getElementById("rack").value = newRack;
+    if (newRack.length) search();
+    else {  // display the appropriate empty results set.
+        if (OPTS.unit_type == SELECT_TOWER) displayTowers([]);
+        if (OPTS.unit_type == SELECT_HARVESTER) displayHarvesters([]);
+        if (OPTS.unit_type == SELECT_MOD) displayMods([]);
+    }
+}
+
 // utils
 function isBetterThanDefault(ref, val) {
     if (ref == "attackInterval" || ref == "harvestInterval") {
@@ -387,6 +398,15 @@ function canFormWord(rackString, word, blanks) {
     return true;
 }
 
+// only call this when it's guaranteed that smaller is a subanagram of bigger.
+function subtractWord(bigger, smaller) {
+    var biggerLetters = [...bigger];
+    for (letter of [...smaller]) {
+        biggerLetters.splice(biggerLetters.indexOf(letter), 1);
+    }
+    return biggerLetters.join('');
+}
+
 function formatDelta(delta) {
     const op_string = delta.op == "grant" ? "+" : delta.op == "add" ? "+" : delta.op == "mult" ? "x" : "";
     return op_string + delta.value;
@@ -395,4 +415,8 @@ function formatDelta(delta) {
 function formatDeltaWithStatName(delta) {
     const op_string = delta.op == "grant" ? "+" : delta.op == "add" ? "+" : delta.op == "mult" ? "x" : "";
     return op_string + delta.value + " " + MOD_NAMES[MOD_REFS.indexOf(delta.stat)];
+}
+
+function wrapWordInRecheckClickable(word) {
+    return '<a onclick="subtractAndRecheck(\'' + word + '\')">' + word + '</a>';
 }
